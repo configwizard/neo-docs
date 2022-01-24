@@ -13,15 +13,15 @@ Session tokens are tokens that are generated from your private key and are requi
 
 You will need
 
-1. to decide how long the token should last (shorter is better)
+1. to decide how long the token should last (e.g `const DEFAULT_EXPIRATION = 140000`)
 2. a context (generally you can use `context.Background()`) but this depends on your usecase
 3. A [NeoFS client](/neo-docs/examples/clients)
-4. Your private key, available from your wallet/account
+4. have access to a private key. This is retrieved from a json file using the [helper function](/neo-docs/examples/helpers/#get-credentials-from-path) `helper.GetCredentialsFromPath` (`key`)
 
 {{< tabs >}}
 {{% tab name="Go" %}}
 ```go
-sessionResponse, err := cli.CreateSession(ctx, expiration)
+sessionResponse, err := cli.CreateSession(ctx, DEFAULT_EXPIRATION)
 if err != nil {
   return &session.Token{}, err
 }
@@ -39,12 +39,12 @@ st.SetSessionKey(sessionResponse.SessionKey())
 {{% /tab %}}
 {{% tab name="Python" %}}
 ```python
-
+print("please help by opening a Pull Request and filling in these code snippets!")
 ```
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-
+Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
 ```
 {{% /tab %}}
 {{< /tabs >}}

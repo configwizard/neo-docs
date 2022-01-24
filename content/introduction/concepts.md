@@ -40,3 +40,5 @@ Access is made using session tokens (derived from the private key), or bearer to
 ### Wallets
 
 A wallet is specifically an item that takes the NEP-6 format and contains any number of accounts. Accounts contain a public address, a private key and other information (read more here)
+
+Wallets contain accounts. The first account in a wallet is the default and its wallet Address is the default address

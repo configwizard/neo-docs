@@ -22,12 +22,12 @@ SELECT 2 FROM * AS X
 {{% /tab %}}
 {{% tab name="Python" %}}
 ```python
-
+print("please help by opening a Pull Request and filling in these code snippets!")
 ```
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-
+Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
 ```
 {{% /tab %}}
 {{< /tabs >}}

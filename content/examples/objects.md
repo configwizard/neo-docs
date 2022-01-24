@@ -22,32 +22,37 @@ Attributes are key value pairs (string:string) that are attached to the metadata
 {{< tabs >}}
 {{% tab name="Go" %}}
 ```go
-var attributes []*object2.Attribute
+var attributes []*object.Attribute
 
 timeStampAttr := new(object.Attribute)
 timeStampAttr.SetKey(object.AttributeTimestamp) // AttributeTimestamp key is like a 'created at' attribute
 timeStampAttr.SetValue(strconv.FormatInt(time.Now().Unix(), 10))
 
 fileNameAttr := new(object.Attribute)
-fileNameAttr.SetKey(object.AttributeFileName) // AttributeFileName key is the filename to be associated with the object. This will become useful later
-fileNameAttr.SetValue(path.Base(filepath))
-attributes = append(attributes, []*object2.Attribute{timeStampAttr, fileNameAttr}...)
+fileNameAttr.SetKey(object.AttributeFileName) // AttributeFileName key is the filename to be associated with the object. 
+fileNameAttr.SetValue(path.Base(filepath)) //path.Base(filepath) returns the last element of a file path (usually the filename)
+attributes = append(attributes, []*object.Attribute{timeStampAttr, fileNameAttr}...)
 
 ```
 {{% /tab %}}
 {{% tab name="Python" %}}
 ```python
-
+print("please help by opening a Pull Request and filling in these code snippets!")
 ```
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-
+Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
 ```
 {{% /tab %}}
 {{< /tabs >}}
 
+{{% notice note %}}
+If you have set the FileName attribute, you can also refer to the object by its filename, i.e
+https://http.testnet.fs.neo.org/CONTAINER_ID/upload.png when its uploaded, (see [acl permissions](/neo-docs/examples/acl-permissions))
+{{% /notice %}}
 
+### Session Token
 See [tokens](/neo-docs/examples/tokens) for how to create a session token
 
 ## Upload 
@@ -57,7 +62,7 @@ See [tokens](/neo-docs/examples/tokens) for how to create a session token
 f, err := os.Open(filepath)
 defer f.Close()
 if err != nil {
-return "", err
+    return fmt.Println("couldn't open the file", err)
 }
 
 reader := bufio.NewReader(f)
@@ -66,13 +71,13 @@ ioReader = reader
 
 ownerID, err := wallet.OwnerIDFromPrivateKey(key)
 if err != nil {
-return "", err
+    return fmt.Println("couldn't retrieve owner ID", err)
 }
 cntId := new(cid.ID)
 cntId.Parse(containerID)
 id, err := object.UploadObject(ctx, cli, cntId, ownerID, attributes, sessionToken, &ioReader)
 if err != nil {
-return fmt.Println("error attempting to upload", err)
+    return fmt.Println("error attempting to upload", err)
 }
 return id.String(), err //id is the object ID that you will want to reference
 
@@ -80,12 +85,12 @@ return id.String(), err //id is the object ID that you will want to reference
 {{% /tab %}}
 {{% tab name="Python" %}}
 ```python
-
+print("please help by opening a Pull Request and filling in these code snippets!")
 ```
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-
+Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -95,41 +100,25 @@ Depending on your container's permissions you should now be able to view the fil
 
 https://http.testnet.fs.neo.org/CONTAINER_ID/OBJECT_ID
 
-{{% notice note %}}
-If you have set the FileName attribute, you can also refer to the object by its filename, i.e
-https://http.testnet.fs.neo.org/CONTAINER_ID/upload.png
-see below
-{{% /notice %}}
-
 {{< tabs >}}
 {{% tab name="Go" %}}
 ```go
 fileNameAttr := new(object.Attribute)
 fileNameAttr.SetKey(object.AttributeFileName) // AttributeFileName key is the filename to be associated with the object. 
-fileNameAttr.SetValue(path.Base(filepath))
+fileNameAttr.SetValue(path.Base(filepath)) //path.Base(filepath) returns the filename from a filepath
 ```
 {{% /tab %}}
 {{% tab name="Python" %}}
 ```python
-
+print("please help by opening a Pull Request and filling in these code snippets!")
 ```
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-
+Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
 ```
 {{% /tab %}}
 {{< /tabs >}}
-
-
-{{% notice info %}}
-Go devs note `path.Base(filepath)` will give you back just the filename part of a filepath:
-
-```go
-filepath := /users/bond/home/upload.png
-filename := path.Base(filepath) //filename = upload.png
-```
-{{% /notice %}}
 
 
 ## Listing the content of a container
@@ -146,19 +135,19 @@ searchParams.WithContainerID(containerID)
 searchParams.WithSearchFilters(filters)
 res, err := cli.SearchObjects(ctx, searchParams, client.WithSession(sessionToken))
 if err != nil {
-return fmt.Errorf(err)
+    return fmt.Errorf(err)
 }
 fmt.Printf("list objects %+v\n", res.IDList())
 ```
 {{% /tab %}}
 {{% tab name="Python" %}}
 ```python
-
+print("please help by opening a Pull Request and filling in these code snippets!")
 ```
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-
+Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -186,12 +175,12 @@ objAddress.SetContainerID(contID)
 {{% /tab %}}
 {{% tab name="Python" %}}
 ```python
-
+print("please help by opening a Pull Request and filling in these code snippets!")
 ```
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-
+Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -205,7 +194,7 @@ getParams.WithAddress(objectAddress)
 getParams.WithPayloadWriter(*writer)
 o, err := cli.GetObject(ctx, getParams, client.WithSession(sessionToken))
 if err != nil {
-return fmt.Errorf(err)
+    return fmt.Errorf(err)
 }
 // payload is in bytes []bytes 
 payload := o.Object().Payload()
@@ -214,12 +203,12 @@ payload := o.Object().Payload()
 {{% /tab %}}
 {{% tab name="Python" %}}
 ```python
-
+print("please help by opening a Pull Request and filling in these code snippets!")
 ```
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-
+Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -238,19 +227,19 @@ var headParams = new(client.ObjectHeaderParams)
 headParams.WithAddress(objectAddress)
 headObject, err := cli.HeadObject(ctx, headParams, client.WithSession(sessionToken))
 if err != nil {
-return &client.ObjectHeadRes{}, err
+    return fmt.Errorf(err)
 }
 size := headObject.Object().PayloadSize()
 ```
 {{% /tab %}}
 {{% tab name="Python" %}}
 ```python
-
+print("please help by opening a Pull Request and filling in these code snippets!")
 ```
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-
+Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -265,18 +254,18 @@ var deleteParams = new (client.DeleteObjectParams)
 deleteParams.WithAddress(objectAddress)
 _, err := cli.DeleteObject(ctx, deleteParams, client.WithSession(sessionToken))
 if err != nil {
-return fmt.Errorf(err)
+    return fmt.Errorf(err)
 }
 ```
 {{% /tab %}}
 {{% tab name="Python" %}}
 ```python
-
+print("please help by opening a Pull Request and filling in these code snippets!")
 ```
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-
+Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
 ```
 {{% /tab %}}
 {{< /tabs >}}

@@ -31,12 +31,12 @@ ownerID := owner.NewIDFromNeo3Wallet(w)
 {{% /tab %}}
 {{% tab name="Python" %}}
 ```python
-
+print("please help by opening a Pull Request and filling in these code snippets!")
 ```
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-
+Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -70,12 +70,12 @@ cnr := container.New(
 {{% /tab %}}
 {{% tab name="Python" %}}
 ```python
-
+print("please help by opening a Pull Request and filling in these code snippets!")
 ```
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-
+Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -94,12 +94,12 @@ fmt.Println(response.ID())
 {{% /tab %}}
 {{% tab name="Python" %}}
 ```python
-
+print("please help by opening a Pull Request and filling in these code snippets!")
 ```
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-
+Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -122,12 +122,12 @@ walletList := response.IDList()
 {{% /tab %}}
 {{% tab name="Python" %}}
 ```python
-
+print("please help by opening a Pull Request and filling in these code snippets!")
 ```
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-
+Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -149,12 +149,12 @@ contianeer := response.Container()
 {{% /tab %}}
 {{% tab name="Python" %}}
 ```python
-
+print("please help by opening a Pull Request and filling in these code snippets!")
 ```
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-
+Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -177,12 +177,12 @@ fmt.Printf("deletion response %+v\r\n", response)
 {{% /tab %}}
 {{% tab name="Python" %}}
 ```python
-
+print("please help by opening a Pull Request and filling in these code snippets!")
 ```
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-
+Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
 ```
 {{% /tab %}}
 {{< /tabs >}}

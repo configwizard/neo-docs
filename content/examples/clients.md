@@ -22,12 +22,12 @@ import (
 {{% /tab %}}
 {{% tab name="Python" %}}
 ```python
-
+print("please help by opening a Pull Request and filling in these code snippets!")
 ```
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-
+Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -47,12 +47,12 @@ if err != nil {
 {{% /tab %}}
 {{% tab name="Python" %}}
 ```python
-
+print("please help by opening a Pull Request and filling in these code snippets!")
 ```
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-
+Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -74,12 +74,12 @@ import (
 {{% /tab %}}
 {{% tab name="Python" %}}
 ```python
-
+print("please help by opening a Pull Request and filling in these code snippets!")
 ```
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-
+Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -104,12 +104,12 @@ if err != nil {
 {{% /tab %}}
 {{% tab name="Python" %}}
 ```python
-
+print("please help by opening a Pull Request and filling in these code snippets!")
 ```
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-
+Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -126,12 +126,12 @@ MAINNET = "grpcs://st01.testnet.fs.neo.org:8082"
 {{% /tab %}}
 {{% tab name="Python" %}}
 ```python
-
+print("please help by opening a Pull Request and filling in these code snippets!")
 ```
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-
+Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
 ```
 {{% /tab %}}
 {{< /tabs >}}

@@ -5,6 +5,10 @@ date: 2022-01-18T17:42:08Z
 
 There are some functions that don't quite fit into another topic. They will be referenced as `helper.X` in other tutorials
 
+## Convert String to Uin160
+
+Convert a string format Neo (3) address into a `uint160`. This is the format required for making transfers
+
 {{< tabs >}}
 {{% tab name="Go" %}}
 ```go
@@ -25,19 +29,19 @@ func StringToUint160(s string) (u util.Uint160, err error) {
 {{% /tab %}}
 {{% tab name="Python" %}}
 ```python
-
+print("please help by opening an MR and filling in these code snippets!")
 ```
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-
+Console.WriteLine("please help by opening an MR and filling in these code snippets!");
 ```
 {{% /tab %}}
 {{< /tabs >}}
 
 ## Get credentials from path
 
-This returns the private key, which anything can be derived from, with regards to a wallet
+This returns the private key, which anything can be derived from, with regards to a [wallet](/neo-docs/examples/wallets)
 {{< tabs >}}
 {{% tab name="Go" %}}
 ```go
@@ -69,12 +73,12 @@ return &acc.PrivateKey().PrivateKey, nil
 {{% /tab %}}
 {{% tab name="Python" %}}
 ```python
-
+print("please help by opening a Pull Request and filling in these code snippets!")
 ```
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-
+Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
 ```
 {{% /tab %}}
 {{< /tabs >}}
