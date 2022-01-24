@@ -26,3 +26,13 @@ General interaction with NeoFS doesn't require Neo-Go however invariably you wil
 You can clone the repository so that you can start NeoFS locally, this may be beneficial for education reasons or perhaps to run integration tests against a local NeoFS
 
 https://github.com/nspcc-dev/neofs-dev-env/
+
+
+### Helpers
+
+Sometimes there will be throughout the tutorials the need to reuse fucntions from elsewhere. These are stored in the Helpers tutorial and will be useful functions to have available within your projects
+
+
+{{% notice note %}}
+See Helpers, whenever you see `helper.` in a code sample
+{{% /notice %}}

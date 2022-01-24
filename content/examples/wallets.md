@@ -6,6 +6,8 @@ date: 2022-01-18T18:57:09Z
 Almost everything you may want to do with NeoFS will require access to a wallet. Here are a few handy ways to get a wallet
 
 
+## Imports
+
 ```go
 import (
     "github.com/nspcc-dev/neo-go/pkg/rpc/client"
@@ -91,7 +93,7 @@ err = cli.Init()
 if err != nil {
     return fmt.Errorf("can't init the client: %w", err)
 }
-recipient, err := StringToUint160(walletAddress)
+recipient, err := helper.StringToUint160(walletAddress)
 if err != nil {
     return fmt.Errorf("can't convert the wallet address: %w", err)
 }
@@ -100,25 +102,6 @@ if err != nil {
 return fmt.Errorf("can't retrieve the balances: %w", err)
 }
 fmt.Printf("balances %+v\r\n", balances)
-```
-
-
-**helper function for above**
-
-```go
-// StringToUint160 attempts to decode the given NEO address string
-// into an Uint160.
-const NEO3Prefix byte = 0x35
-func StringToUint160(s string) (u util.Uint160, err error) {
-	b, err := base58.CheckDecode(s)
-	if err != nil {
-		return u, err
-	}
-	if b[0] != NEO3Prefix {
-		return u, errors.New("wrong address prefix")
-	}
-	return util.Uint160DecodeBytesBE(b[1:21])
-}
 ```
 
 ### Transferring NEP-17 tokens
@@ -150,7 +133,7 @@ err = cli.Init()
 if err != nil {
   return util.Uint256{}, err
 }
-recipient, err := StringToUint160(walletTo)
+recipient, err := helper.StringToUint160(walletTo)
 if err != nil {
   return util.Uint256{}, err
 }
@@ -183,6 +166,6 @@ if err != nil {
 }
 id := owner.NewIDFromNeo3Wallet(w)
 ctx := context.Background()
-neoFSBalance, err := m.fsCli.GetBalance(ctx, id)
+neoFSBalance, err := cli.GetBalance(ctx, id)
 fmt.Printf("neofs balance %+v\r\n", neoFSBalance)
 ```

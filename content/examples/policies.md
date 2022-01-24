@@ -12,7 +12,8 @@ Before we can create a container, we need to define the policy. A policy defines
 Basic example
 
 ```
-REP 2 IN X
+const placementPolicy = `REP 2 IN X
 CBF 2
 SELECT 2 FROM * AS X
+`
 ```
