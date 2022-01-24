@@ -34,3 +34,48 @@ func StringToUint160(s string) (u util.Uint160, err error) {
 ```
 {{% /tab %}}
 {{< /tabs >}}
+
+## Get credentials from path
+
+This returns the private key, which anything can be derived from, with regards to a wallet
+{{< tabs >}}
+{{% tab name="Go" %}}
+```go
+// GetCredentialsFromPath retrieves the private key from a wallet file 
+func GetCredentialsFromPath(path, address, password string) (*ecdsa.PrivateKey, error) {
+w, err := wallet.NewWalletFromFile(path)
+if err != nil {
+    return nil, fmt.Errorf("can't read the wallet: %walletPath", err)
+}
+
+var (
+    err  error
+)
+addr := w.GetChangeAddress() //default address
+
+acc := w.GetAccount(addr)
+if acc == nil {
+    return nil, fmt.Errorf("invalid wallet address %s: %w", addrStr, err)
+}
+
+if err := acc.Decrypt(password, keys.NEP2ScryptParams()); err != nil {
+    return nil, errors.New("[decrypt] invalid password - " + err.Error())
+}
+
+return &acc.PrivateKey().PrivateKey, nil
+
+}
+```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}
+

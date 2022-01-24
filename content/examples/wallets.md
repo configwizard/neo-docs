@@ -288,7 +288,7 @@ Once you have this, you can now retrieve your NeoFS balance
 You will need
 
 1. Private key
-2. NeoFS client (`cli`)
+2. [NeoFS client](/neo-docs/examples/clients) (`cli`)
 
 {{< tabs >}}
 {{% tab name="Go" %}}
