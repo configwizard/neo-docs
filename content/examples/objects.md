@@ -19,6 +19,8 @@ Before uploading an object, you will need
 ### Attributes
 
 Attributes are key value pairs (string:string) that are attached to the metadata of objects. You can specify anything as an attribute, however there are a couple of reserved ones
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 var attributes []*object2.Attribute
 
@@ -32,16 +34,30 @@ fileNameAttr.SetValue(path.Base(filepath))
 attributes = append(attributes, []*object2.Attribute{timeStampAttr, fileNameAttr}...)
 
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}
+
 
 See [tokens](/examples/tokens) for how to create a session token
 
 ## Upload 
-
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 f, err := os.Open(filepath)
 defer f.Close()
 if err != nil {
-    return "", err
+return "", err
 }
 
 reader := bufio.NewReader(f)
@@ -50,44 +66,78 @@ ioReader = reader
 
 ownerID, err := wallet.OwnerIDFromPrivateKey(key)
 if err != nil {
-    return "", err
+return "", err
 }
 cntId := new(cid.ID)
 cntId.Parse(containerID)
 id, err := object.UploadObject(ctx, cli, cntId, ownerID, attributes, sessionToken, &ioReader)
 if err != nil {
-    return fmt.Println("error attempting to upload", err)
+return fmt.Println("error attempting to upload", err)
 }
 return id.String(), err //id is the object ID that you will want to reference
+
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}
+
 
 Depending on your container's permissions you should now be able to view the file you uploaded at:
 
 https://http.testnet.fs.neo.org/CONTAINER_ID/OBJECT_ID
 
-however, if you set the 
+{{% notice note %}}
+If you have set the FileName attribute, you can also refer to the object by its filename, i.e
+https://http.testnet.fs.neo.org/CONTAINER_ID/upload.png
+see below
+{{% /notice %}}
 
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 fileNameAttr := new(object.Attribute)
-fileNameAttr.SetKey(object.AttributeFileName) // AttributeFileName key is the filename to be associated with the object. This will become useful later
+fileNameAttr.SetKey(object.AttributeFileName) // AttributeFileName key is the filename to be associated with the object. 
 fileNameAttr.SetValue(path.Base(filepath))
 ```
-attribute, you can also refer to the object by its filename, i.e
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
 
-https://http.testnet.fs.neo.org/CONTAINER_ID/upload.png
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
 
-Note `path.Base(filepath)` will give you back just the filename part of a filepath:
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+
+{{% notice info %}}
+Go devs note `path.Base(filepath)` will give you back just the filename part of a filepath:
 
 ```go
 filepath := /users/bond/home/upload.png
 filename := path.Base(filepath) //filename = upload.png
 ```
+{{% /notice %}}
+
 
 ## Listing the content of a container
 
 Once you have uploaded objects to a container, you will want to list them out. Listing is a special case of searching within a container.
 To search for specific objects, you add filters to the search. By setting the only filter as a root filter, it will list everything within the container
-
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 var searchParams = new (client.SearchObjectParams)
 var filters = object.SearchFilters{}
@@ -96,10 +146,22 @@ searchParams.WithContainerID(containerID)
 searchParams.WithSearchFilters(filters)
 res, err := cli.SearchObjects(ctx, searchParams, client.WithSession(sessionToken))
 if err != nil {
-    return fmt.Errorf(err)
+return fmt.Errorf(err)
 }
 fmt.Printf("list objects %+v\n", res.IDList())
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 ## Retrieve an Object
 
@@ -110,7 +172,8 @@ You will need
 2. an object address, which is made up of a container ID and an object ID
 
 To generate an object address from the string forms of a containerID and an objectID:
-
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 contID := cid.New()
 contID.Parse(containerID)
@@ -120,50 +183,102 @@ objAddress := obj.NewAddress()
 objAddress.SetObjectID(objID)
 objAddress.SetContainerID(contID)
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 so now you can retrieve the object
-
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 var getParams = new(client.GetObjectParams)
 getParams.WithAddress(objectAddress)
 getParams.WithPayloadWriter(*writer)
 o, err := cli.GetObject(ctx, getParams, client.WithSession(sessionToken))
 if err != nil {
-    return fmt.Errorf(err)
+return fmt.Errorf(err)
 }
 // payload is in bytes []bytes 
 payload := o.Object().Payload()
 }
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}
+
 
 ## Retrieving an objects HEAD/metadata
 
 Sometimes you want information about an object, without actually downloading the entire object, for instance the size of an object
 
 From a container, you can find out storage policies, owners and any other meta information about the container itself. This is very similar to retrieving the object
-
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 var headParams = new(client.ObjectHeaderParams)
 headParams.WithAddress(objectAddress)
 headObject, err := cli.HeadObject(ctx, headParams, client.WithSession(sessionToken))
 if err != nil {
-  return &client.ObjectHeadRes{}, err
+return &client.ObjectHeadRes{}, err
 }
 size := headObject.Object().PayloadSize()
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 ## Deleting Objects
 
-You may wish to delete an object for a container
-
+You may wish to delete an object for a container  
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
-	var deleteParams = new (client.DeleteObjectParams)
+var deleteParams = new (client.DeleteObjectParams)
 deleteParams.WithAddress(objectAddress)
 _, err := cli.DeleteObject(ctx, deleteParams, client.WithSession(sessionToken))
 if err != nil {
-    return fmt.Errorf(err)
+return fmt.Errorf(err)
 }
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 ## Questions about objects
 

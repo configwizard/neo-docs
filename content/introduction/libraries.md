@@ -20,3 +20,9 @@ The SDK is responsible for providing functionality to interact with NeoFS itself
 ## Neo-Go library
 
 General interaction with NeoFS doesn't require Neo-Go however invariably you will need to manage wallets or use cryptographic functions that are required while setting permissions throughout the NeoFS system.
+
+## Neo FS local environment 
+
+You can clone the repository so that you can start NeoFS locally, this may be beneficial for education reasons or perhaps to run integration tests against a local NeoFS
+
+https://github.com/nspcc-dev/neofs-dev-env/
