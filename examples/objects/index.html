@@ -6,18 +6,18 @@
 <meta name=description content>
 <link rel=icon href=/neo-docs/images/favicon.png type=image/png>
 <title>Objects :: Neo FS Tutorials</title>
-<link href=/neo-docs/css/nucleus.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/fontawesome-all.min.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/hybrid.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/featherlight.min.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/perfect-scrollbar.min.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/auto-complete.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/atom-one-dark-reasonable.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/theme.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/tabs.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/hugo-theme.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/theme-green.css?1643060307 rel=stylesheet>
-<script src=/neo-docs/js/jquery-3.3.1.min.js?1643060307></script>
+<link href=/neo-docs/css/nucleus.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/fontawesome-all.min.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/hybrid.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/featherlight.min.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/perfect-scrollbar.min.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/auto-complete.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/atom-one-dark-reasonable.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/theme.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/tabs.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/hugo-theme.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/theme-green.css?1643065787 rel=stylesheet>
+<script src=/neo-docs/js/jquery-3.3.1.min.js?1643065787></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/neo-docs/examples/objects/>
@@ -32,10 +32,10 @@
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script type=text/javascript src=/neo-docs/js/lunr.min.js?1643060307></script>
-<script type=text/javascript src=/neo-docs/js/auto-complete.js?1643060307></script>
+<script type=text/javascript src=/neo-docs/js/lunr.min.js?1643065787></script>
+<script type=text/javascript src=/neo-docs/js/auto-complete.js?1643065787></script>
 <script type=text/javascript>var baseurl="https://amlwwalker.github.io/neo-docs/"</script>
-<script type=text/javascript src=/neo-docs/js/search.js?1643060307></script>
+<script type=text/javascript src=/neo-docs/js/search.js?1643065787></script>
 </div>
 <section id=homelinks>
 <ul>
@@ -155,15 +155,15 @@ Helpers
 <h1>
 Objects
 </h1>
-<p>Objects represent items stored within a container. These are subject to the permissions of the container being the most relaxed possible permissions that can be applied to an object. It is possilbe using Session/Bearer Tokens to restrict permissions further on objects within a container however</p>
+<p>Objects represent items stored within a <a href=/neo-docs/examples/containers>container</a>. These are subject to the permissions of the container being the most relaxed possible permissions that can be applied to an object. It is possible using <a href=/neo-docs/examples/tokens>Session/Bearer Tokens</a> to restrict permissions further on objects within a container however</p>
 <p>Please note actions on objects are restricted by the permissions on the container AND the permissions of the token used to access the functions.</p>
 <h2 id=uploading-objects>Uploading Objects</h2>
 <p>Before uploading an object, you will need</p>
 <ol>
-<li>A session Token</li>
-<li>A container ID to upload the object to, with the correct permisisions</li>
-<li>An object to upload (<code>filepath</code>)</li>
-<li>Have created a client (<code>cli</code>)</li>
+<li>A <a href=/neo-docs/examples/tokens>session token</a></li>
+<li>A <a href=/neo-docs/examples/containers>container</a> ID to upload the object to, with the correct permissions</li>
+<li>An <a href=/neo-docs/examples/objects>object</a> to upload (<code>filepath</code>)</li>
+<li>Have created a <a href=/neo-docs/examples/clients>NeoFS client</a> (<code>cli</code>)</li>
 </ol>
 <h3 id=attributes>Attributes</h3>
 <p>Attributes are key value pairs (string:string) that are attached to the metadata of objects. You can specify anything as an attribute, however there are a couple of reserved ones
@@ -199,7 +199,7 @@ Objects
 </div>
 </div>
 </p>
-<p>See <a href=/examples/tokens>tokens</a> for how to create a session token</p>
+<p>See <a href=/neo-docs/examples/tokens>tokens</a> for how to create a session token</p>
 <h2 id=upload>Upload</h2>
 <div class=tab-panel>
 <div class=tab-nav>
@@ -380,7 +380,7 @@ To search for specific objects, you add filters to the search. By setting the on
 </p>
 <h2 id=retrieving-an-objects-headmetadata>Retrieving an objects HEAD/metadata</h2>
 <p>Sometimes you want information about an object, without actually downloading the entire object, for instance the size of an object</p>
-<p>From a container, you can find out storage policies, owners and any other meta information about the container itself. This is very similar to retrieving the object
+<p>From a container, you can find out storage policies, owners and any other meta information about the container itself. This is very similar to retrieving the object</p>
 <div class=tab-panel>
 <div class=tab-nav>
 <button data-tab-item=Go data-tab-group=default class="tab-nav-button btn active" onclick="switchTab('default','Go')">Go</button>
@@ -408,7 +408,6 @@ To search for specific objects, you add filters to the search. By setting the on
 </div>
 </div>
 </div>
-</p>
 <h2 id=deleting-objects>Deleting Objects</h2>
 <p>You may wish to delete an object for a container<br>
 <div class=tab-panel>
@@ -455,17 +454,17 @@ To search for specific objects, you add filters to the search. By setting the on
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/neo-docs/js/clipboard.min.js?1643060307></script>
-<script src=/neo-docs/js/perfect-scrollbar.min.js?1643060307></script>
-<script src=/neo-docs/js/perfect-scrollbar.jquery.min.js?1643060307></script>
-<script src=/neo-docs/js/jquery.sticky.js?1643060307></script>
-<script src=/neo-docs/js/featherlight.min.js?1643060307></script>
-<script src=/neo-docs/js/highlight.pack.js?1643060307></script>
+<script src=/neo-docs/js/clipboard.min.js?1643065787></script>
+<script src=/neo-docs/js/perfect-scrollbar.min.js?1643065787></script>
+<script src=/neo-docs/js/perfect-scrollbar.jquery.min.js?1643065787></script>
+<script src=/neo-docs/js/jquery.sticky.js?1643065787></script>
+<script src=/neo-docs/js/featherlight.min.js?1643065787></script>
+<script src=/neo-docs/js/highlight.pack.js?1643065787></script>
 <script>hljs.initHighlightingOnLoad()</script>
-<script src=/neo-docs/js/modernizr.custom-3.6.0.js?1643060307></script>
-<script src=/neo-docs/js/learn.js?1643060307></script>
-<script src=/neo-docs/js/hugo-learn.js?1643060307></script>
-<script src=/neo-docs/mermaid/mermaid.js?1643060307></script>
+<script src=/neo-docs/js/modernizr.custom-3.6.0.js?1643065787></script>
+<script src=/neo-docs/js/learn.js?1643065787></script>
+<script src=/neo-docs/js/hugo-learn.js?1643065787></script>
+<script src=/neo-docs/mermaid/mermaid.js?1643065787></script>
 <script>mermaid.initialize({startOnLoad:!0})</script>
 </body>
 </html>

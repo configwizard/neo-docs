@@ -6,18 +6,18 @@
 <meta name=description content>
 <link rel=icon href=/neo-docs/images/favicon.png type=image/png>
 <title>Tokens :: Neo FS Tutorials</title>
-<link href=/neo-docs/css/nucleus.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/fontawesome-all.min.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/hybrid.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/featherlight.min.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/perfect-scrollbar.min.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/auto-complete.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/atom-one-dark-reasonable.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/theme.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/tabs.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/hugo-theme.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/theme-green.css?1643060307 rel=stylesheet>
-<script src=/neo-docs/js/jquery-3.3.1.min.js?1643060307></script>
+<link href=/neo-docs/css/nucleus.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/fontawesome-all.min.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/hybrid.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/featherlight.min.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/perfect-scrollbar.min.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/auto-complete.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/atom-one-dark-reasonable.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/theme.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/tabs.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/hugo-theme.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/theme-green.css?1643065787 rel=stylesheet>
+<script src=/neo-docs/js/jquery-3.3.1.min.js?1643065787></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/neo-docs/examples/tokens/>
@@ -32,10 +32,10 @@
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script type=text/javascript src=/neo-docs/js/lunr.min.js?1643060307></script>
-<script type=text/javascript src=/neo-docs/js/auto-complete.js?1643060307></script>
+<script type=text/javascript src=/neo-docs/js/lunr.min.js?1643065787></script>
+<script type=text/javascript src=/neo-docs/js/auto-complete.js?1643065787></script>
 <script type=text/javascript>var baseurl="https://amlwwalker.github.io/neo-docs/"</script>
-<script type=text/javascript src=/neo-docs/js/search.js?1643060307></script>
+<script type=text/javascript src=/neo-docs/js/search.js?1643065787></script>
 </div>
 <section id=homelinks>
 <ul>
@@ -149,7 +149,7 @@ Helpers
 <h1>
 Tokens
 </h1>
-<p>Tokens are requried to act on any objects within a container. Sessions last for limited time and are restricted by permissions. Session tokens use the private key to sign them while bearer tokens are issued to wallets by a container owner.</p>
+<p>Tokens are requried to act on any <a href=/neo-docs/examples/objects>objects</a> within a <a href=/neo-docs/examples/containers>container</a>. Sessions last for limited time and are restricted by permissions. <a href=/neo-docs/examples/tokens>Session tokens</a> use the private key to sign them while [bearer tokens(/examples/tokens) are issued to wallets by a container owner.</p>
 <h2 id=session-tokens>Session Tokens</h2>
 <p>Session tokens are tokens that are generated from your private key and are required to access or interact with content inside a container (depending on permissions this can include READ capability). These tokens should only be used by container owners and not distributed to third parties</p>
 <h3 id=creating-a-token>Creating a token</h3>
@@ -157,9 +157,17 @@ Tokens
 <ol>
 <li>to decide how long the token should last (shorter is better)</li>
 <li>a context (generally you can use <code>context.Background()</code>) but this depends on your usecase</li>
-<li>A client (see <a href=/examples/client>client</a>)</li>
+<li>A <a href=/neo-docs/examples/clients>NeoFS client</a></li>
 <li>Your private key, available from your wallet/account</li>
 </ol>
+<div class=tab-panel>
+<div class=tab-nav>
+<button data-tab-item=Go data-tab-group=default class="tab-nav-button btn active" onclick="switchTab('default','Go')">Go</button>
+<button data-tab-item=Python data-tab-group=default class="tab-nav-button btn" onclick="switchTab('default','Python')">Python</button>
+<button data-tab-item=C# data-tab-group=default class="tab-nav-button btn" onclick="switchTab('default','C#')">C#</button>
+</div>
+<div class=tab-content>
+<div data-tab-item=Go data-tab-group=default class="tab-item active">
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>sessionResponse</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>cli</span>.<span style=color:#a6e22e>CreateSession</span>(<span style=color:#a6e22e>ctx</span>, <span style=color:#a6e22e>expiration</span>)
 <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
   <span style=color:#66d9ef>return</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>session</span>.<span style=color:#a6e22e>Token</span>{}, <span style=color:#a6e22e>err</span>
@@ -175,6 +183,17 @@ Tokens
 <span style=color:#75715e>//st is your new session token
 </span><span style=color:#75715e></span>
 </code></pre></div>
+</div>
+<div data-tab-item=Python data-tab-group=default class=tab-item>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>
+</code></pre></div>
+</div>
+<div data-tab-item=C# data-tab-group=default class=tab-item>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#>
+</code></pre></div>
+</div>
+</div>
+</div>
 <footer class=footline>
 </footer>
 </div>
@@ -187,17 +206,17 @@ Tokens
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/neo-docs/js/clipboard.min.js?1643060307></script>
-<script src=/neo-docs/js/perfect-scrollbar.min.js?1643060307></script>
-<script src=/neo-docs/js/perfect-scrollbar.jquery.min.js?1643060307></script>
-<script src=/neo-docs/js/jquery.sticky.js?1643060307></script>
-<script src=/neo-docs/js/featherlight.min.js?1643060307></script>
-<script src=/neo-docs/js/highlight.pack.js?1643060307></script>
+<script src=/neo-docs/js/clipboard.min.js?1643065787></script>
+<script src=/neo-docs/js/perfect-scrollbar.min.js?1643065787></script>
+<script src=/neo-docs/js/perfect-scrollbar.jquery.min.js?1643065787></script>
+<script src=/neo-docs/js/jquery.sticky.js?1643065787></script>
+<script src=/neo-docs/js/featherlight.min.js?1643065787></script>
+<script src=/neo-docs/js/highlight.pack.js?1643065787></script>
 <script>hljs.initHighlightingOnLoad()</script>
-<script src=/neo-docs/js/modernizr.custom-3.6.0.js?1643060307></script>
-<script src=/neo-docs/js/learn.js?1643060307></script>
-<script src=/neo-docs/js/hugo-learn.js?1643060307></script>
-<script src=/neo-docs/mermaid/mermaid.js?1643060307></script>
+<script src=/neo-docs/js/modernizr.custom-3.6.0.js?1643065787></script>
+<script src=/neo-docs/js/learn.js?1643065787></script>
+<script src=/neo-docs/js/hugo-learn.js?1643065787></script>
+<script src=/neo-docs/mermaid/mermaid.js?1643065787></script>
 <script>mermaid.initialize({startOnLoad:!0})</script>
 </body>
 </html>

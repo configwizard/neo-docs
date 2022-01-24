@@ -6,18 +6,18 @@
 <meta name=description content>
 <link rel=icon href=/neo-docs/images/favicon.png type=image/png>
 <title>Clients :: Neo FS Tutorials</title>
-<link href=/neo-docs/css/nucleus.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/fontawesome-all.min.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/hybrid.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/featherlight.min.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/perfect-scrollbar.min.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/auto-complete.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/atom-one-dark-reasonable.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/theme.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/tabs.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/hugo-theme.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/theme-green.css?1643060307 rel=stylesheet>
-<script src=/neo-docs/js/jquery-3.3.1.min.js?1643060307></script>
+<link href=/neo-docs/css/nucleus.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/fontawesome-all.min.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/hybrid.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/featherlight.min.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/perfect-scrollbar.min.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/auto-complete.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/atom-one-dark-reasonable.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/theme.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/tabs.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/hugo-theme.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/theme-green.css?1643065787 rel=stylesheet>
+<script src=/neo-docs/js/jquery-3.3.1.min.js?1643065787></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/neo-docs/examples/clients/>
@@ -32,10 +32,10 @@
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script type=text/javascript src=/neo-docs/js/lunr.min.js?1643060307></script>
-<script type=text/javascript src=/neo-docs/js/auto-complete.js?1643060307></script>
+<script type=text/javascript src=/neo-docs/js/lunr.min.js?1643065787></script>
+<script type=text/javascript src=/neo-docs/js/auto-complete.js?1643065787></script>
 <script type=text/javascript>var baseurl="https://amlwwalker.github.io/neo-docs/"</script>
-<script type=text/javascript src=/neo-docs/js/search.js?1643060307></script>
+<script type=text/javascript src=/neo-docs/js/search.js?1643065787></script>
 </div>
 <section id=homelinks>
 <ul>
@@ -149,26 +149,94 @@ Clients
 <p>There are two types of client to be aware, of and as they are both clients, it can be confusing. You have a wallet client and an NeoFS client.
 Interactions with NeoFS will require a NeoFS client, whereas wallet actions will require a wallet client. Note they do not reside in the same package</p>
 <h2 id=wallet-client>Wallet Client</h2>
-<p>When using a wallet client you will import</p>
+<p>When using a wallet client you will need to import</p>
+<div class=tab-panel>
+<div class=tab-nav>
+<button data-tab-item=Go data-tab-group=default class="tab-nav-button btn active" onclick="switchTab('default','Go')">Go</button>
+<button data-tab-item=Python data-tab-group=default class="tab-nav-button btn" onclick="switchTab('default','Python')">Python</button>
+<button data-tab-item=C# data-tab-group=default class="tab-nav-button btn" onclick="switchTab('default','C#')">C#</button>
+</div>
+<div class=tab-content>
+<div data-tab-item=Go data-tab-group=default class="tab-item active">
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>import</span> (
     <span style=color:#e6db74>&#34;github.com/nspcc-dev/neo-go/pkg/rpc/client&#34;</span>
     <span style=color:#e6db74>&#34;github.com/nspcc-dev/neo-go/pkg/wallet&#34;</span>	
 )
-</code></pre></div><p>To create a wallet client</p>
+</code></pre></div>
+</div>
+<div data-tab-item=Python data-tab-group=default class=tab-item>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>
+</code></pre></div>
+</div>
+<div data-tab-item=C# data-tab-group=default class=tab-item>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>To create a wallet client</p>
+<div class=tab-panel>
+<div class=tab-nav>
+<button data-tab-item=Go data-tab-group=default class="tab-nav-button btn active" onclick="switchTab('default','Go')">Go</button>
+<button data-tab-item=Python data-tab-group=default class="tab-nav-button btn" onclick="switchTab('default','Python')">Python</button>
+<button data-tab-item=C# data-tab-group=default class="tab-nav-button btn" onclick="switchTab('default','C#')">C#</button>
+</div>
+<div class=tab-content>
+<div data-tab-item=Go data-tab-group=default class="tab-item active">
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>ctx</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Background</span>()
 <span style=color:#75715e>// use endpoint addresses of public RPC nodes, e.g. from https://dora.coz.io/monitor
 </span><span style=color:#75715e></span><span style=color:#a6e22e>cli</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>client</span>.<span style=color:#a6e22e>New</span>(<span style=color:#a6e22e>ctx</span>, <span style=color:#e6db74>&#34;http://seed1t4.neo.org:20332&#34;</span>, <span style=color:#a6e22e>client</span>.<span style=color:#a6e22e>Options</span>{})
 <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-  <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>util</span>.<span style=color:#a6e22e>Uint256</span>{}, <span style=color:#a6e22e>err</span>
+    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Errorf</span>(<span style=color:#e6db74>&#34;can&#39;t create client: %w&#34;</span>, <span style=color:#a6e22e>err</span>)
 }
-</code></pre></div><h2 id=neofs-client>NeoFS Client</h2>
+</code></pre></div>
+</div>
+<div data-tab-item=Python data-tab-group=default class=tab-item>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>
+</code></pre></div>
+</div>
+<div data-tab-item=C# data-tab-group=default class=tab-item>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id=neofs-client>NeoFS Client</h2>
 <p>The client wraps around the raw API requests to NeoFS.
 Once you have a client requests to NeoFS can be made so you will need to make this early on from the wallet/private key.</p>
 <p>When using the NeoFS client you will import</p>
+<div class=tab-panel>
+<div class=tab-nav>
+<button data-tab-item=Go data-tab-group=default class="tab-nav-button btn active" onclick="switchTab('default','Go')">Go</button>
+<button data-tab-item=Python data-tab-group=default class="tab-nav-button btn" onclick="switchTab('default','Python')">Python</button>
+<button data-tab-item=C# data-tab-group=default class="tab-nav-button btn" onclick="switchTab('default','C#')">C#</button>
+</div>
+<div class=tab-content>
+<div data-tab-item=Go data-tab-group=default class="tab-item active">
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>import</span> (
-<span style=color:#e6db74>&#34;github.com/nspcc-dev/neofs-sdk-go/client&#34;</span>
+    <span style=color:#e6db74>&#34;github.com/nspcc-dev/neofs-sdk-go/client&#34;</span>
 )
-</code></pre></div><p>Creating a client can be done like so</p>
+</code></pre></div>
+</div>
+<div data-tab-item=Python data-tab-group=default class=tab-item>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>
+</code></pre></div>
+</div>
+<div data-tab-item=C# data-tab-group=default class=tab-item>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Creating a client can be done like so</p>
+<div class=tab-panel>
+<div class=tab-nav>
+<button data-tab-item=Go data-tab-group=default class="tab-nav-button btn active" onclick="switchTab('default','Go')">Go</button>
+<button data-tab-item=Python data-tab-group=default class="tab-nav-button btn" onclick="switchTab('default','Python')">Python</button>
+<button data-tab-item=C# data-tab-group=default class="tab-nav-button btn" onclick="switchTab('default','C#')">C#</button>
+</div>
+<div class=tab-content>
+<div data-tab-item=Go data-tab-group=default class="tab-item active">
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>cli</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>client</span>.<span style=color:#a6e22e>New</span>(
   <span style=color:#75715e>// provide private key associated with request owner
 </span><span style=color:#75715e></span>  <span style=color:#a6e22e>client</span>.<span style=color:#a6e22e>WithDefaultPrivateKey</span>(<span style=color:#a6e22e>privateKey</span>),
@@ -180,13 +248,44 @@ Once you have a client requests to NeoFS can be made so you will need to make th
 <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
 	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Errorf</span>(<span style=color:#e6db74>&#34;can&#39;t create client: %w&#34;</span>, <span style=color:#a6e22e>err</span>)
 }
-</code></pre></div><ul>
-<li>Private key can be retrieved from a wallet - its type is <code>*ecdsa.PrivateKey</code></li>
+</code></pre></div>
+</div>
+<div data-tab-item=Python data-tab-group=default class=tab-item>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>
+</code></pre></div>
+</div>
+<div data-tab-item=C# data-tab-group=default class=tab-item>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#>
+</code></pre></div>
+</div>
+</div>
+</div>
+<ul>
+<li>Private key can be retrieved from a <a href=/neo-docs/examples/wallets>wallet</a> - its type is <code>*ecdsa.PrivateKey</code></li>
 <li>The network is a string, for now you can use</li>
 </ul>
+<div class=tab-panel>
+<div class=tab-nav>
+<button data-tab-item=Go data-tab-group=default class="tab-nav-button btn active" onclick="switchTab('default','Go')">Go</button>
+<button data-tab-item=Python data-tab-group=default class="tab-nav-button btn" onclick="switchTab('default','Python')">Python</button>
+<button data-tab-item=C# data-tab-group=default class="tab-nav-button btn" onclick="switchTab('default','C#')">C#</button>
+</div>
+<div class=tab-content>
+<div data-tab-item=Go data-tab-group=default class="tab-item active">
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>TESTNET</span> <span style=color:#66d9ef>string</span> = <span style=color:#e6db74>&#34;grpcs://st01.testnet.fs.neo.org:8082&#34;</span>
 <span style=color:#a6e22e>MAINNET</span> = <span style=color:#e6db74>&#34;grpcs://st01.testnet.fs.neo.org:8082&#34;</span>
 </code></pre></div>
+</div>
+<div data-tab-item=Python data-tab-group=default class=tab-item>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>
+</code></pre></div>
+</div>
+<div data-tab-item=C# data-tab-group=default class=tab-item>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#>
+</code></pre></div>
+</div>
+</div>
+</div>
 <footer class=footline>
 </footer>
 </div>
@@ -199,17 +298,17 @@ Once you have a client requests to NeoFS can be made so you will need to make th
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/neo-docs/js/clipboard.min.js?1643060307></script>
-<script src=/neo-docs/js/perfect-scrollbar.min.js?1643060307></script>
-<script src=/neo-docs/js/perfect-scrollbar.jquery.min.js?1643060307></script>
-<script src=/neo-docs/js/jquery.sticky.js?1643060307></script>
-<script src=/neo-docs/js/featherlight.min.js?1643060307></script>
-<script src=/neo-docs/js/highlight.pack.js?1643060307></script>
+<script src=/neo-docs/js/clipboard.min.js?1643065787></script>
+<script src=/neo-docs/js/perfect-scrollbar.min.js?1643065787></script>
+<script src=/neo-docs/js/perfect-scrollbar.jquery.min.js?1643065787></script>
+<script src=/neo-docs/js/jquery.sticky.js?1643065787></script>
+<script src=/neo-docs/js/featherlight.min.js?1643065787></script>
+<script src=/neo-docs/js/highlight.pack.js?1643065787></script>
 <script>hljs.initHighlightingOnLoad()</script>
-<script src=/neo-docs/js/modernizr.custom-3.6.0.js?1643060307></script>
-<script src=/neo-docs/js/learn.js?1643060307></script>
-<script src=/neo-docs/js/hugo-learn.js?1643060307></script>
-<script src=/neo-docs/mermaid/mermaid.js?1643060307></script>
+<script src=/neo-docs/js/modernizr.custom-3.6.0.js?1643065787></script>
+<script src=/neo-docs/js/learn.js?1643065787></script>
+<script src=/neo-docs/js/hugo-learn.js?1643065787></script>
+<script src=/neo-docs/mermaid/mermaid.js?1643065787></script>
 <script>mermaid.initialize({startOnLoad:!0})</script>
 </body>
 </html>

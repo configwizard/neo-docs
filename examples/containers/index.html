@@ -6,18 +6,18 @@
 <meta name=description content>
 <link rel=icon href=/neo-docs/images/favicon.png type=image/png>
 <title>Containers :: Neo FS Tutorials</title>
-<link href=/neo-docs/css/nucleus.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/fontawesome-all.min.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/hybrid.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/featherlight.min.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/perfect-scrollbar.min.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/auto-complete.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/atom-one-dark-reasonable.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/theme.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/tabs.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/hugo-theme.css?1643060307 rel=stylesheet>
-<link href=/neo-docs/css/theme-green.css?1643060307 rel=stylesheet>
-<script src=/neo-docs/js/jquery-3.3.1.min.js?1643060307></script>
+<link href=/neo-docs/css/nucleus.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/fontawesome-all.min.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/hybrid.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/featherlight.min.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/perfect-scrollbar.min.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/auto-complete.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/atom-one-dark-reasonable.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/theme.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/tabs.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/hugo-theme.css?1643065787 rel=stylesheet>
+<link href=/neo-docs/css/theme-green.css?1643065787 rel=stylesheet>
+<script src=/neo-docs/js/jquery-3.3.1.min.js?1643065787></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/neo-docs/examples/containers/>
@@ -32,10 +32,10 @@
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script type=text/javascript src=/neo-docs/js/lunr.min.js?1643060307></script>
-<script type=text/javascript src=/neo-docs/js/auto-complete.js?1643060307></script>
+<script type=text/javascript src=/neo-docs/js/lunr.min.js?1643065787></script>
+<script type=text/javascript src=/neo-docs/js/auto-complete.js?1643065787></script>
 <script type=text/javascript>var baseurl="https://amlwwalker.github.io/neo-docs/"</script>
-<script type=text/javascript src=/neo-docs/js/search.js?1643060307></script>
+<script type=text/javascript src=/neo-docs/js/search.js?1643065787></script>
 </div>
 <section id=homelinks>
 <ul>
@@ -157,20 +157,48 @@ Containers
 <h2 id=creating-a-container>Creating a container</h2>
 <p>Before being able to create a container, you will need to</p>
 <ol>
-<li>create a policy (<code>placementPolicy</code>)</li>
-<li>have access to a wallet (<code>key</code>)</li>
+<li>create a <a href=/neo-docs/examples/policies>policy</a> (<code>placementPolicy</code>)</li>
+<li>have access to a <a href=/neo-docs/examples/wallets>wallet</a> (<code>key</code>)</li>
 <li>Decide on a set of permissions, (<code>permissions</code>)</li>
-<li>Have created a client (<code>cli</code>)</li>
+<li>Have created a <a href=/neo-docs/examples/clients>NeoFS client</a> (<code>cli</code>)</li>
 </ol>
 <h3 id=owner-id>Owner ID</h3>
 <p>You will need to get the owner ID from the wallet private key. The owner ID is not the same as the wallet ID or public key. A straight forward way to do this is</p>
+<div class=tab-panel>
+<div class=tab-nav>
+<button data-tab-item=Go data-tab-group=default class="tab-nav-button btn active" onclick="switchTab('default','Go')">Go</button>
+<button data-tab-item=Python data-tab-group=default class="tab-nav-button btn" onclick="switchTab('default','Python')">Python</button>
+<button data-tab-item=C# data-tab-group=default class="tab-nav-button btn" onclick="switchTab('default','C#')">C#</button>
+</div>
+<div class=tab-content>
+<div data-tab-item=Go data-tab-group=default class="tab-item active">
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>//see key retrieval generation for how to get a key
 </span><span style=color:#75715e></span><span style=color:#a6e22e>w</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>owner</span>.<span style=color:#a6e22e>NEO3WalletFromPublicKey</span>(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>key</span>.<span style=color:#a6e22e>PublicKey</span>)
 <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
     <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Errorf</span>(<span style=color:#e6db74>&#34;invalid private key&#34;</span>)
 }
 <span style=color:#a6e22e>ownerID</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>owner</span>.<span style=color:#a6e22e>NewIDFromNeo3Wallet</span>(<span style=color:#a6e22e>w</span>)
-</code></pre></div><p>Now we can get on with creating a container</p>
+</code></pre></div>
+</div>
+<div data-tab-item=Python data-tab-group=default class=tab-item>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>
+</code></pre></div>
+</div>
+<div data-tab-item=C# data-tab-group=default class=tab-item>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Now we can get on with creating a container</p>
+<div class=tab-panel>
+<div class=tab-nav>
+<button data-tab-item=Go data-tab-group=default class="tab-nav-button btn active" onclick="switchTab('default','Go')">Go</button>
+<button data-tab-item=Python data-tab-group=default class="tab-nav-button btn" onclick="switchTab('default','Python')">Python</button>
+<button data-tab-item=C# data-tab-group=default class="tab-nav-button btn" onclick="switchTab('default','C#')">C#</button>
+</div>
+<div class=tab-content>
+<div data-tab-item=Go data-tab-group=default class="tab-item active">
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>containerPolicy</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>policy</span>.<span style=color:#a6e22e>Parse</span>(<span style=color:#a6e22e>placementPolicy</span>)
 <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
   <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Errorf</span>(<span style=color:#e6db74>&#34;can&#39;t parse placement policy: %w&#34;</span>, <span style=color:#a6e22e>err</span>)
@@ -191,14 +219,54 @@ Containers
     <span style=color:#a6e22e>strconv</span>.<span style=color:#a6e22e>FormatInt</span>(<span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Now</span>().<span style=color:#a6e22e>Unix</span>(), <span style=color:#ae81ff>10</span>),
   ),
 
-</code></pre></div><p>Finally we can <code>put</code> the container on NeoFS. We will receive a response that contains the container&rsquo;s ID.</p>
+</code></pre></div>
+</div>
+<div data-tab-item=Python data-tab-group=default class=tab-item>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>
+</code></pre></div>
+</div>
+<div data-tab-item=C# data-tab-group=default class=tab-item>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Finally we can <code>put</code> the container on NeoFS. We will receive a response that contains the container&rsquo;s ID.</p>
+<div class=tab-panel>
+<div class=tab-nav>
+<button data-tab-item=Go data-tab-group=default class="tab-nav-button btn active" onclick="switchTab('default','Go')">Go</button>
+<button data-tab-item=Python data-tab-group=default class="tab-nav-button btn" onclick="switchTab('default','Python')">Python</button>
+<button data-tab-item=C# data-tab-group=default class="tab-nav-button btn" onclick="switchTab('default','C#')">C#</button>
+</div>
+<div class=tab-content>
+<div data-tab-item=Go data-tab-group=default class="tab-item active">
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>response</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>cli</span>.<span style=color:#a6e22e>PutContainer</span>(<span style=color:#a6e22e>ctx</span>, <span style=color:#a6e22e>cnr</span>)
 <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
 	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Errorf</span>(<span style=color:#e6db74>&#34;can&#39;t put container: %w&#34;</span>, <span style=color:#a6e22e>err</span>) 
 }
 <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>ID</span>())
-</code></pre></div><h2 id=listing-containers>Listing Containers</h2>
+</code></pre></div>
+</div>
+<div data-tab-item=Python data-tab-group=default class=tab-item>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>
+</code></pre></div>
+</div>
+<div data-tab-item=C# data-tab-group=default class=tab-item>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id=listing-containers>Listing Containers</h2>
 <p>You can list all the containers owned by a wallet. This will return an array of container IDs</p>
+<div class=tab-panel>
+<div class=tab-nav>
+<button data-tab-item=Go data-tab-group=default class="tab-nav-button btn active" onclick="switchTab('default','Go')">Go</button>
+<button data-tab-item=Python data-tab-group=default class="tab-nav-button btn" onclick="switchTab('default','Python')">Python</button>
+<button data-tab-item=C# data-tab-group=default class="tab-nav-button btn" onclick="switchTab('default','C#')">C#</button>
+</div>
+<div class=tab-content>
+<div data-tab-item=Go data-tab-group=default class="tab-item active">
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>response</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>cli</span>.<span style=color:#a6e22e>ListContainers</span>(<span style=color:#a6e22e>ctx</span>, <span style=color:#a6e22e>wallet</span>.<span style=color:#a6e22e>OwnerIDFromPrivateKey</span>(<span style=color:#a6e22e>key</span>))
 <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
   <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Errorf</span>(<span style=color:#e6db74>&#34;can&#39;t list container: %w&#34;</span>, <span style=color:#a6e22e>err</span>)
@@ -206,27 +274,79 @@ Containers
 
 <span style=color:#a6e22e>walletList</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>IDList</span>()
 	
-</code></pre></div><h2 id=retrieve-a-container>Retrieve a Container</h2>
+</code></pre></div>
+</div>
+<div data-tab-item=Python data-tab-group=default class=tab-item>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>
+</code></pre></div>
+</div>
+<div data-tab-item=C# data-tab-group=default class=tab-item>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id=retrieve-a-container>Retrieve a Container</h2>
 <p>You can retrieve a container once you have the ID</p>
+<div class=tab-panel>
+<div class=tab-nav>
+<button data-tab-item=Go data-tab-group=default class="tab-nav-button btn active" onclick="switchTab('default','Go')">Go</button>
+<button data-tab-item=Python data-tab-group=default class="tab-nav-button btn" onclick="switchTab('default','Python')">Python</button>
+<button data-tab-item=C# data-tab-group=default class="tab-nav-button btn" onclick="switchTab('default','C#')">C#</button>
+</div>
+<div class=tab-content>
+<div data-tab-item=Go data-tab-group=default class="tab-item active">
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>response</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>cli</span>.<span style=color:#a6e22e>GetContainer</span>(<span style=color:#a6e22e>ctx</span>, <span style=color:#a6e22e>containerID</span>)
 <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
   <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Errorf</span>(<span style=color:#e6db74>&#34;can&#39;t get container %s: %w&#34;</span>, <span style=color:#a6e22e>containerID</span>, <span style=color:#a6e22e>err</span>)
 }
 
 <span style=color:#a6e22e>contianeer</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>Container</span>()
-</code></pre></div><p>From a container, you can find out storage policies, owners and any other meta information about the container itself</p>
+</code></pre></div>
+</div>
+<div data-tab-item=Python data-tab-group=default class=tab-item>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>
+</code></pre></div>
+</div>
+<div data-tab-item=C# data-tab-group=default class=tab-item>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>From a container, you can find out storage policies, owners and any other meta information about the container itself</p>
 <h2 id=deleting-containers>Deleting Containers</h2>
 <p>Once you have created a container, you will receive the ID of the container as part of the response (see above). Using this ID you can now delete the container with ease</p>
+<div class=tab-panel>
+<div class=tab-nav>
+<button data-tab-item=Go data-tab-group=default class="tab-nav-button btn active" onclick="switchTab('default','Go')">Go</button>
+<button data-tab-item=Python data-tab-group=default class="tab-nav-button btn" onclick="switchTab('default','Python')">Python</button>
+<button data-tab-item=C# data-tab-group=default class="tab-nav-button btn" onclick="switchTab('default','C#')">C#</button>
+</div>
+<div class=tab-content>
+<div data-tab-item=Go data-tab-group=default class="tab-item active">
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>response</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>cli</span>.<span style=color:#a6e22e>DeleteContainer</span>(<span style=color:#a6e22e>ctx</span>, <span style=color:#a6e22e>containerID</span>)
 <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
   <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>, <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Errorf</span>(<span style=color:#e6db74>&#34;can&#39;t get container %s: %w&#34;</span>, <span style=color:#a6e22e>containerID</span>, <span style=color:#a6e22e>err</span>)
 }
 <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;deletion response %+v\r\n&#34;</span>, <span style=color:#a6e22e>response</span>)
-</code></pre></div><h2 id=questions-about-containers>Questions about containers</h2>
+</code></pre></div>
+</div>
+<div data-tab-item=Python data-tab-group=default class=tab-item>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>
+</code></pre></div>
+</div>
+<div data-tab-item=C# data-tab-group=default class=tab-item>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id=questions-about-containers>Questions about containers</h2>
 <ul>
 <li>if you delete a container what happens to all the objects within a container</li>
-<li>using multisig wallets, could two or more people share ownership of a container</li>
-<li>status - what information do I receive from a status?</li>
+<li>using multisig wallets, could two or more people share ownership of a container - no.</li>
+<li>status - what information do I receive from a status - error on failure.</li>
 </ul>
 <footer class=footline>
 </footer>
@@ -240,17 +360,17 @@ Containers
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/neo-docs/js/clipboard.min.js?1643060307></script>
-<script src=/neo-docs/js/perfect-scrollbar.min.js?1643060307></script>
-<script src=/neo-docs/js/perfect-scrollbar.jquery.min.js?1643060307></script>
-<script src=/neo-docs/js/jquery.sticky.js?1643060307></script>
-<script src=/neo-docs/js/featherlight.min.js?1643060307></script>
-<script src=/neo-docs/js/highlight.pack.js?1643060307></script>
+<script src=/neo-docs/js/clipboard.min.js?1643065787></script>
+<script src=/neo-docs/js/perfect-scrollbar.min.js?1643065787></script>
+<script src=/neo-docs/js/perfect-scrollbar.jquery.min.js?1643065787></script>
+<script src=/neo-docs/js/jquery.sticky.js?1643065787></script>
+<script src=/neo-docs/js/featherlight.min.js?1643065787></script>
+<script src=/neo-docs/js/highlight.pack.js?1643065787></script>
 <script>hljs.initHighlightingOnLoad()</script>
-<script src=/neo-docs/js/modernizr.custom-3.6.0.js?1643060307></script>
-<script src=/neo-docs/js/learn.js?1643060307></script>
-<script src=/neo-docs/js/hugo-learn.js?1643060307></script>
-<script src=/neo-docs/mermaid/mermaid.js?1643060307></script>
+<script src=/neo-docs/js/modernizr.custom-3.6.0.js?1643065787></script>
+<script src=/neo-docs/js/learn.js?1643065787></script>
+<script src=/neo-docs/js/hugo-learn.js?1643065787></script>
+<script src=/neo-docs/mermaid/mermaid.js?1643065787></script>
 <script>mermaid.initialize({startOnLoad:!0})</script>
 </body>
 </html>
