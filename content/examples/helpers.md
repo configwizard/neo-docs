@@ -5,7 +5,8 @@ date: 2022-01-18T17:42:08Z
 
 There are some functions that don't quite fit into another topic. They will be referenced as `helper.X` in other tutorials
 
-
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 // StringToUint160 attempts to decode the given NEO address string
 // into an Uint160.
@@ -21,3 +22,15 @@ func StringToUint160(s string) (u util.Uint160, err error) {
     return util.Uint160DecodeBytesBE(b[1:21])
 }
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}

@@ -18,6 +18,8 @@ Before being able to create a container, you will need to
 
 You will need to get the owner ID from the wallet private key. The owner ID is not the same as the wallet ID or public key. A straight forward way to do this is
 
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 //see key retrieval generation for how to get a key
 w, err := owner.NEO3WalletFromPublicKey(&key.PublicKey)
@@ -26,9 +28,23 @@ if err != nil {
 }
 ownerID := owner.NewIDFromNeo3Wallet(w)
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 Now we can get on with creating a container
 
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 containerPolicy, err := policy.Parse(placementPolicy)
 if err != nil {
@@ -51,9 +67,23 @@ cnr := container.New(
   ),
 
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 Finally we can `put` the container on NeoFS. We will receive a response that contains the container's ID.
 
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 response, err := cli.PutContainer(ctx, cnr)
 if err != nil {
@@ -61,10 +91,25 @@ if err != nil {
 }
 fmt.Println(response.ID())
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}
+
 ## Listing Containers
 
 You can list all the containers owned by a wallet. This will return an array of container IDs
 
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 response, err := cli.ListContainers(ctx, wallet.OwnerIDFromPrivateKey(key))
 if err != nil {
@@ -74,10 +119,25 @@ if err != nil {
 walletList := response.IDList()
 	
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 ## Retrieve a Container
 
 You can retrieve a container once you have the ID
+
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 response, err := cli.GetContainer(ctx, containerID)
 if err != nil {
@@ -86,12 +146,27 @@ if err != nil {
 
 contianeer := response.Container()
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 From a container, you can find out storage policies, owners and any other meta information about the container itself
 
 ## Deleting Containers
 
 Once you have created a container, you will receive the ID of the container as part of the response (see above). Using this ID you can now delete the container with ease 
+
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 response, err := cli.DeleteContainer(ctx, containerID)
 if err != nil {
@@ -99,6 +174,18 @@ if err != nil {
 }
 fmt.Printf("deletion response %+v\r\n", response)
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 ## Questions about containers
 

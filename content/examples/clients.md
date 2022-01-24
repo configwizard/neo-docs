@@ -11,15 +11,31 @@ Interactions with NeoFS will require a NeoFS client, whereas wallet actions will
 
 When using a wallet client you will need to import
 
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 import (
     "github.com/nspcc-dev/neo-go/pkg/rpc/client"
     "github.com/nspcc-dev/neo-go/pkg/wallet"	
 )
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 To create a wallet client
 
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 ctx := context.Background()
 // use endpoint addresses of public RPC nodes, e.g. from https://dora.coz.io/monitor
@@ -28,6 +44,18 @@ if err != nil {
     return fmt.Errorf("can't create client: %w", err)
 }
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 ## NeoFS Client
 
@@ -36,14 +64,30 @@ Once you have a client requests to NeoFS can be made so you will need to make th
 
 When using the NeoFS client you will import
 
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 import (
     "github.com/nspcc-dev/neofs-sdk-go/client"
 )
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 Creating a client can be done like so
 
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 cli, err := client.New(
   // provide private key associated with request owner
@@ -57,14 +101,39 @@ if err != nil {
 	return fmt.Errorf("can't create client: %w", err)
 }
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 * Private key can be retrieved from a [wallet](/neo-docs/examples/wallets) - its type is `*ecdsa.PrivateKey`
 * The network is a string, for now you can use 
 
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 TESTNET string = "grpcs://st01.testnet.fs.neo.org:8082"
 MAINNET = "grpcs://st01.testnet.fs.neo.org:8082"
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
 
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 

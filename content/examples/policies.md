@@ -11,9 +11,23 @@ Before we can create a container, we need to define the policy. A policy defines
 
 Basic example
 
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```
 const placementPolicy = `REP 2 IN X
 CBF 2
 SELECT 2 FROM * AS X
 `
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}

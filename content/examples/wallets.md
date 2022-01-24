@@ -8,26 +8,56 @@ Almost everything you may want to do with NeoFS will require access to a wallet.
 
 ## Imports
 
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 import (
     "github.com/nspcc-dev/neo-go/pkg/rpc/client"
     "github.com/nspcc-dev/neo-go/pkg/wallet"	
 )
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 #### Retrieve from a NEP-6 file (json format)
 
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 w, err := wallet.NewWalletFromFile(path)
 if err != nil {
   return fmt.Errorf("can't read the wallet: %w", err)
 }
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 ## Create a new wallet
 
 This wallet has no password but is the simplest form of wallet that you can generate
 
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 acc, err := wallet.NewAccount() //generates a new private key
 if err != nil {
@@ -39,9 +69,23 @@ if err != nil {
 }
 w.AddAccount(acc)
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 #### A slighty more secure wallet... with a password 
 
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 w, err := wallet.NewWallet(path)
 w.CreateAccount(name, password)
@@ -49,6 +93,18 @@ if err != nil {
     return fmt.Errorf("can't create the wallet: %w", err)
 }
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 ### Retrieving the private key from a wallet
 
@@ -57,6 +113,8 @@ Sometimes for specific actions you will need the private key of the wallet. If y
 Notice this `decrypts` the wallet. At this point the wallet is considered "unlocked". Sometimes you may find you are performing an action on a walelt and the error is it is locked.
 The result of decrypting is unlocking the wallet.
 
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 addr := w.GetChangeAddress() //get the default wallet
 acc := w.GetAccount(addr)
@@ -69,7 +127,18 @@ if err := acc.Decrypt(password, keys.NEP2ScryptParams()); err != nil {
 }
 privateKey := &acc.PrivateKey().PrivateKey
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
 
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 ## Retrieving wallet balances
 
@@ -84,6 +153,8 @@ You will need
 
 1. A wallet address you want to get the balances of 
 
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 cli, err := client.New(ctx, "http://seed1t4.neo.org:20332", client.Options{})
 if err != nil {
@@ -103,6 +174,18 @@ return fmt.Errorf("can't retrieve the balances: %w", err)
 }
 fmt.Printf("balances %+v\r\n", balances)
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 ### Transferring NEP-17 tokens
 
@@ -115,13 +198,32 @@ You will need
 2. A wallet to send Nep17 to `walletTo`
 3. The amount you would like to send (as an int64 - no decimals in blockchain remember!)
 4. The token you would like to send. To retrieve the token, you need the token name to get the contract hash
+
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 gasToken, err := cli.GetNativeContractHash(nativenames.Gas)
 if err != nil {
   log.Fatal(err)
 }
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}
+
 then
+
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 ctx := context.Background()
 // use endpoint addresses of public RPC nodes, e.g. from https://dora.coz.io/monitor
@@ -141,16 +243,45 @@ txHash, err := cli.TransferNEP17(myWallet, recipient, gasToken, amount, 0, nil, 
 le := txHash.StringLE()
 return txHash, err
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
 
-**NOTE** the txHash is reversed in its uint256 state. You need to reverse it so that it matches the txHashes you would find in a blockchain explorer for instance, hence the `le := txHash.StringLE()`
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+{{% notice note %}}
+the txHash is reversed in its uint256 state. You need to reverse it so that it matches the txHashes you would find in a blockchain explorer for instance, hence the `le := txHash.StringLE()`
+{{% /notice %}}
+
 ## NeoFS Balance
 However this balance as I mentioned, does not include your NeoFS balance. For that you need a NeoFS client
 
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 import (
     "github.com/nspcc-dev/neofs-sdk-go/client"
 )
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 Once you have this, you can now retrieve your NeoFS balance
 
@@ -159,6 +290,8 @@ You will need
 1. Private key
 2. NeoFS client (`cli`)
 
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 w, err := owner.NEO3WalletFromPublicKey(&key.PublicKey)
 if err != nil {
@@ -169,3 +302,15 @@ ctx := context.Background()
 neoFSBalance, err := cli.GetBalance(ctx, id)
 fmt.Printf("neofs balance %+v\r\n", neoFSBalance)
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}

@@ -18,6 +18,8 @@ You will need
 3. A [NeoFS client](/neo-docs/examples/clients)
 4. Your private key, available from your wallet/account
 
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 sessionResponse, err := cli.CreateSession(ctx, expiration)
 if err != nil {
@@ -34,3 +36,15 @@ st.SetSessionKey(sessionResponse.SessionKey())
 //st is your new session token
 
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+
+```
+{{% /tab %}}
+{{< /tabs >}}
