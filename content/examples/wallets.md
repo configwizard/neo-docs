@@ -3,8 +3,6 @@ title: "Wallets"
 date: 2022-01-18T18:57:09Z
 ---
 
-# Wallets
-
 Almost everything you may want to do with NeoFS will require access to a wallet. Here are a few handy ways to get a wallet
 
 
@@ -157,9 +155,11 @@ if err != nil {
   return util.Uint256{}, err
 }
 txHash, err := cli.TransferNEP17(myWallet, recipient, gasToken, amount, 0, nil, nil)
+le := txHash.StringLE()
 return txHash, err
 ```
 
+**NOTE** the txHash is reversed in its uint256 state. You need to reverse it so that it matches the txHashes you would find in a blockchain explorer for instance, hence the `le := txHash.StringLE()`
 ## NeoFS Balance
 However this balance as I mentioned, does not include your NeoFS balance. For that you need a NeoFS client
 

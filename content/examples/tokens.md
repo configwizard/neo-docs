@@ -3,9 +3,6 @@ title: "Tokens"
 date: 2022-01-24T11:23:17Z
 ---
 
-
-# Tokens
-
 Tokens are requried to act on any objects within a container. Sessions last for limited time and are restricted by permissions. Session tokens use the private key to sign them while bearer tokens are issued to wallets by a container owner.
 
 ## Session Tokens
@@ -18,7 +15,7 @@ You will need
 
 1. to decide how long the token should last (shorter is better)
 2. a context (generally you can use `context.Background()`) but this depends on your usecase
-3. A client (see [client](/client))
+3. A client (see [client](/examples/client))
 4. Your private key, available from your wallet/account
 
 ```go

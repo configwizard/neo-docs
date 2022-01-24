@@ -3,8 +3,6 @@ title: "Objects"
 date: 2022-01-24T11:23:17Z
 ---
 
-# Objects
-
 Objects represent items stored within a container. These are subject to the permissions of the container being the most relaxed possible permissions that can be applied to an object. It is possilbe using Session/Bearer Tokens to restrict permissions further on objects within a container however
 
 Please note actions on objects are restricted by the permissions on the container AND the permissions of the token used to access the functions. 
@@ -24,7 +22,6 @@ Attributes are key value pairs (string:string) that are attached to the metadata
 ```go
 var attributes []*object2.Attribute
 
-//set special attributes last so they don't get overwritten
 timeStampAttr := new(object.Attribute)
 timeStampAttr.SetKey(object.AttributeTimestamp) // AttributeTimestamp key is like a 'created at' attribute
 timeStampAttr.SetValue(strconv.FormatInt(time.Now().Unix(), 10))
@@ -36,7 +33,7 @@ attributes = append(attributes, []*object2.Attribute{timeStampAttr, fileNameAttr
 
 ```
 
-See [tokens](/tokens) for how to create a session token
+See [tokens](/examples/tokens) for how to create a session token
 
 ## Upload 
 
@@ -66,7 +63,7 @@ return id.String(), err //id is the object ID that you will want to reference
 
 Depending on your container's permissions you should now be able to view the file you uploaded at:
 
-https://http.testnet.fs.neo.org/<CONTAINER_ID>/<OBJECT_ID>
+https://http.testnet.fs.neo.org/CONTAINER_ID/OBJECT_ID
 
 however, if you set the 
 
@@ -77,7 +74,7 @@ fileNameAttr.SetValue(path.Base(filepath))
 ```
 attribute, you can also refer to the object by its filename, i.e
 
-https://http.testnet.fs.neo.org/<CONTAINER_ID>/upload.png
+https://http.testnet.fs.neo.org/CONTAINER_ID/upload.png
 
 Note `path.Base(filepath)` will give you back just the filename part of a filepath:
 

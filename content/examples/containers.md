@@ -3,8 +3,6 @@ title: "Containers"
 date: 2022-01-18T17:42:08Z
 ---
 
-# Containers
-
 Containers manage the permissions/access of a group of objects that are being stored. Before being able to store an object, you need to create a container.
 
 ## Creating a container

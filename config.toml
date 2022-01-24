@@ -1,6 +1,6 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://amlwwalker.github.io/neo-docs/'
 languageCode = 'en-us'
-title = 'Neo FS Tutorias'
+title = 'Neo FS Tutorials'
 # Change the default theme to be use when building the site with Hugo
 theme = "hugo-theme-learn"
 [params]
