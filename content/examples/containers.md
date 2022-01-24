@@ -9,10 +9,10 @@ Containers manage the permissions/access of a group of objects that are being st
 
 Before being able to create a container, you will need to 
 
-1. create a policy (`placementPolicy`)
-2. have access to a wallet (`key`)
+1. create a [policy](/neo-docs/examples/policies) (`placementPolicy`)
+2. have access to a [wallet](/neo-docs/examples/wallets) (`key`)
 3. Decide on a set of permissions, (`permissions`)
-4. Have created a client (`cli`)
+4. Have created a [NeoFS client](/neo-docs/examples/clients) (`cli`)
 
 ### Owner ID
 
@@ -103,5 +103,5 @@ fmt.Printf("deletion response %+v\r\n", response)
 ## Questions about containers
 
 * if you delete a container what happens to all the objects within a container
-* using multisig wallets, could two or more people share ownership of a container
-* status - what information do I receive from a status?
+* using multisig wallets, could two or more people share ownership of a container - no.
+* status - what information do I receive from a status - error on failure.

@@ -3,7 +3,7 @@ title: "Objects"
 date: 2022-01-24T11:23:17Z
 ---
 
-Objects represent items stored within a container. These are subject to the permissions of the container being the most relaxed possible permissions that can be applied to an object. It is possilbe using Session/Bearer Tokens to restrict permissions further on objects within a container however
+Objects represent items stored within a [container](/neo-docs/examples/containers). These are subject to the permissions of the container being the most relaxed possible permissions that can be applied to an object. It is possible using [Session/Bearer Tokens](/neo-docs/examples/tokens) to restrict permissions further on objects within a container however
 
 Please note actions on objects are restricted by the permissions on the container AND the permissions of the token used to access the functions. 
 
@@ -11,10 +11,10 @@ Please note actions on objects are restricted by the permissions on the containe
 
 Before uploading an object, you will need
 
-1. A session Token
-2. A container ID to upload the object to, with the correct permisisions
-3. An object to upload (`filepath`)
-4. Have created a client (`cli`)
+1. A [session token](/neo-docs/examples/tokens)
+2. A [container](/neo-docs/examples/containers) ID to upload the object to, with the correct permissions
+3. An [object](/neo-docs/examples/objects) to upload (`filepath`)
+4. Have created a [NeoFS client](/neo-docs/examples/clients) (`cli`)
 
 ### Attributes
 
@@ -48,7 +48,7 @@ attributes = append(attributes, []*object2.Attribute{timeStampAttr, fileNameAttr
 {{< /tabs >}}
 
 
-See [tokens](/examples/tokens) for how to create a session token
+See [tokens](/neo-docs/examples/tokens) for how to create a session token
 
 ## Upload 
 {{< tabs >}}
@@ -230,6 +230,7 @@ payload := o.Object().Payload()
 Sometimes you want information about an object, without actually downloading the entire object, for instance the size of an object
 
 From a container, you can find out storage policies, owners and any other meta information about the container itself. This is very similar to retrieving the object
+
 {{< tabs >}}
 {{% tab name="Go" %}}
 ```go

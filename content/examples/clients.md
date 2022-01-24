@@ -9,7 +9,7 @@ Interactions with NeoFS will require a NeoFS client, whereas wallet actions will
 
 ## Wallet Client
 
-When using a wallet client you will import
+When using a wallet client you will need to import
 
 ```go
 import (
@@ -25,7 +25,7 @@ ctx := context.Background()
 // use endpoint addresses of public RPC nodes, e.g. from https://dora.coz.io/monitor
 cli, err := client.New(ctx, "http://seed1t4.neo.org:20332", client.Options{})
 if err != nil {
-  return util.Uint256{}, err
+    return fmt.Errorf("can't create client: %w", err)
 }
 ```
 
@@ -38,7 +38,7 @@ When using the NeoFS client you will import
 
 ```go
 import (
-"github.com/nspcc-dev/neofs-sdk-go/client"
+    "github.com/nspcc-dev/neofs-sdk-go/client"
 )
 ```
 
@@ -58,7 +58,7 @@ if err != nil {
 }
 ```
 
-* Private key can be retrieved from a wallet - its type is `*ecdsa.PrivateKey`
+* Private key can be retrieved from a [wallet](/neo-docs/examples/wallets) - its type is `*ecdsa.PrivateKey`
 * The network is a string, for now you can use 
 
 ```go

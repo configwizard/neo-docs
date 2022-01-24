@@ -16,7 +16,7 @@ Objects represent all files/data that is stored on NeoFS. Objects are accessed v
 
 ### Containers
 
-A [container](/examples/containers) controls the basic permissions that are applied to all content within it. Think of a container like a drive on a computer or network (and not a folder per se).
+A [container](/neo-docs/examples/containers) controls the basic permissions that are applied to all content within it. Think of a container like a drive on a computer or network (and not a folder per se).
 
 All objects must live within a container, their permissions will default to the permissions of the container
 
