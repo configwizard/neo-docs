@@ -6,18 +6,18 @@
 <meta name=description content>
 <link rel=icon href=/neo-docs/images/favicon.png type=image/png>
 <title>Objects :: Neo FS Tutorials</title>
-<link href=/neo-docs/css/nucleus.css?1643068162 rel=stylesheet>
-<link href=/neo-docs/css/fontawesome-all.min.css?1643068162 rel=stylesheet>
-<link href=/neo-docs/css/hybrid.css?1643068162 rel=stylesheet>
-<link href=/neo-docs/css/featherlight.min.css?1643068162 rel=stylesheet>
-<link href=/neo-docs/css/perfect-scrollbar.min.css?1643068162 rel=stylesheet>
-<link href=/neo-docs/css/auto-complete.css?1643068162 rel=stylesheet>
-<link href=/neo-docs/css/atom-one-dark-reasonable.css?1643068162 rel=stylesheet>
-<link href=/neo-docs/css/theme.css?1643068162 rel=stylesheet>
-<link href=/neo-docs/css/tabs.css?1643068162 rel=stylesheet>
-<link href=/neo-docs/css/hugo-theme.css?1643068162 rel=stylesheet>
-<link href=/neo-docs/css/theme-green.css?1643068162 rel=stylesheet>
-<script src=/neo-docs/js/jquery-3.3.1.min.js?1643068162></script>
+<link href=/neo-docs/css/nucleus.css?1643068196 rel=stylesheet>
+<link href=/neo-docs/css/fontawesome-all.min.css?1643068196 rel=stylesheet>
+<link href=/neo-docs/css/hybrid.css?1643068196 rel=stylesheet>
+<link href=/neo-docs/css/featherlight.min.css?1643068196 rel=stylesheet>
+<link href=/neo-docs/css/perfect-scrollbar.min.css?1643068196 rel=stylesheet>
+<link href=/neo-docs/css/auto-complete.css?1643068196 rel=stylesheet>
+<link href=/neo-docs/css/atom-one-dark-reasonable.css?1643068196 rel=stylesheet>
+<link href=/neo-docs/css/theme.css?1643068196 rel=stylesheet>
+<link href=/neo-docs/css/tabs.css?1643068196 rel=stylesheet>
+<link href=/neo-docs/css/hugo-theme.css?1643068196 rel=stylesheet>
+<link href=/neo-docs/css/theme-green.css?1643068196 rel=stylesheet>
+<script src=/neo-docs/js/jquery-3.3.1.min.js?1643068196></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/neo-docs/examples/objects/>
@@ -32,10 +32,10 @@
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script type=text/javascript src=/neo-docs/js/lunr.min.js?1643068162></script>
-<script type=text/javascript src=/neo-docs/js/auto-complete.js?1643068162></script>
+<script type=text/javascript src=/neo-docs/js/lunr.min.js?1643068196></script>
+<script type=text/javascript src=/neo-docs/js/auto-complete.js?1643068196></script>
 <script type=text/javascript>var baseurl="https://amlwwalker.github.io/neo-docs/"</script>
-<script type=text/javascript src=/neo-docs/js/search.js?1643068162></script>
+<script type=text/javascript src=/neo-docs/js/search.js?1643068196></script>
 </div>
 <section id=homelinks>
 <ul>
@@ -217,7 +217,7 @@ Objects
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>f</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Open</span>(<span style=color:#a6e22e>filepath</span>)
 <span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>f</span>.<span style=color:#a6e22e>Close</span>()
 <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;couldn&#39;t open the file&#34;</span>, <span style=color:#a6e22e>err</span>)
+    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;couldn&#39;t open the file&#34;</span>, <span style=color:#a6e22e>err</span>)
 }
 
 <span style=color:#a6e22e>reader</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>bufio</span>.<span style=color:#a6e22e>NewReader</span>(<span style=color:#a6e22e>f</span>)
@@ -226,13 +226,13 @@ Objects
 
 <span style=color:#a6e22e>ownerID</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>wallet</span>.<span style=color:#a6e22e>OwnerIDFromPrivateKey</span>(<span style=color:#a6e22e>key</span>)
 <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;couldn&#39;t retrieve owner ID&#34;</span>, <span style=color:#a6e22e>err</span>)
+    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;couldn&#39;t retrieve owner ID&#34;</span>, <span style=color:#a6e22e>err</span>)
 }
 <span style=color:#a6e22e>cntId</span> <span style=color:#f92672>:=</span> new(<span style=color:#a6e22e>cid</span>.<span style=color:#a6e22e>ID</span>)
 <span style=color:#a6e22e>cntId</span>.<span style=color:#a6e22e>Parse</span>(<span style=color:#a6e22e>containerID</span>)
 <span style=color:#a6e22e>id</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>object</span>.<span style=color:#a6e22e>UploadObject</span>(<span style=color:#a6e22e>ctx</span>, <span style=color:#a6e22e>cli</span>, <span style=color:#a6e22e>cntId</span>, <span style=color:#a6e22e>ownerID</span>, <span style=color:#a6e22e>attributes</span>, <span style=color:#a6e22e>sessionToken</span>, <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>ioReader</span>)
 <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;error attempting to upload&#34;</span>, <span style=color:#a6e22e>err</span>)
+    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;error attempting to upload&#34;</span>, <span style=color:#a6e22e>err</span>)
 }
 <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>String</span>(), <span style=color:#a6e22e>err</span> <span style=color:#75715e>//id is the object ID that you will want to reference
 </span><span style=color:#75715e></span>
@@ -299,7 +299,7 @@ To search for specific objects, you add filters to the search. By setting the on
 <span style=color:#a6e22e>searchParams</span>.<span style=color:#a6e22e>WithSearchFilters</span>(<span style=color:#a6e22e>filters</span>)
 <span style=color:#a6e22e>res</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>cli</span>.<span style=color:#a6e22e>SearchObjects</span>(<span style=color:#a6e22e>ctx</span>, <span style=color:#a6e22e>searchParams</span>, <span style=color:#a6e22e>client</span>.<span style=color:#a6e22e>WithSession</span>(<span style=color:#a6e22e>sessionToken</span>))
 <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Errorf</span>(<span style=color:#a6e22e>err</span>)
+    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Errorf</span>(<span style=color:#a6e22e>err</span>)
 }
 <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;list objects %+v\n&#34;</span>, <span style=color:#a6e22e>res</span>.<span style=color:#a6e22e>IDList</span>())
 </code></pre></div>
@@ -365,7 +365,7 @@ To search for specific objects, you add filters to the search. By setting the on
 <span style=color:#a6e22e>getParams</span>.<span style=color:#a6e22e>WithPayloadWriter</span>(<span style=color:#f92672>*</span><span style=color:#a6e22e>writer</span>)
 <span style=color:#a6e22e>o</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>cli</span>.<span style=color:#a6e22e>GetObject</span>(<span style=color:#a6e22e>ctx</span>, <span style=color:#a6e22e>getParams</span>, <span style=color:#a6e22e>client</span>.<span style=color:#a6e22e>WithSession</span>(<span style=color:#a6e22e>sessionToken</span>))
 <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Errorf</span>(<span style=color:#a6e22e>err</span>)
+    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Errorf</span>(<span style=color:#a6e22e>err</span>)
 }
 <span style=color:#75715e>// payload is in bytes []bytes 
 </span><span style=color:#75715e></span><span style=color:#a6e22e>payload</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>o</span>.<span style=color:#a6e22e>Object</span>().<span style=color:#a6e22e>Payload</span>()
@@ -398,7 +398,7 @@ To search for specific objects, you add filters to the search. By setting the on
 <span style=color:#a6e22e>headParams</span>.<span style=color:#a6e22e>WithAddress</span>(<span style=color:#a6e22e>objectAddress</span>)
 <span style=color:#a6e22e>headObject</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>cli</span>.<span style=color:#a6e22e>HeadObject</span>(<span style=color:#a6e22e>ctx</span>, <span style=color:#a6e22e>headParams</span>, <span style=color:#a6e22e>client</span>.<span style=color:#a6e22e>WithSession</span>(<span style=color:#a6e22e>sessionToken</span>))
 <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Errorf</span>(<span style=color:#a6e22e>err</span>)
+    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Errorf</span>(<span style=color:#a6e22e>err</span>)
 }
 <span style=color:#a6e22e>size</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>headObject</span>.<span style=color:#a6e22e>Object</span>().<span style=color:#a6e22e>PayloadSize</span>()
 </code></pre></div>
@@ -427,7 +427,7 @@ To search for specific objects, you add filters to the search. By setting the on
 <span style=color:#a6e22e>deleteParams</span>.<span style=color:#a6e22e>WithAddress</span>(<span style=color:#a6e22e>objectAddress</span>)
 <span style=color:#a6e22e>_</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>cli</span>.<span style=color:#a6e22e>DeleteObject</span>(<span style=color:#a6e22e>ctx</span>, <span style=color:#a6e22e>deleteParams</span>, <span style=color:#a6e22e>client</span>.<span style=color:#a6e22e>WithSession</span>(<span style=color:#a6e22e>sessionToken</span>))
 <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Errorf</span>(<span style=color:#a6e22e>err</span>)
+    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Errorf</span>(<span style=color:#a6e22e>err</span>)
 }
 </code></pre></div>
 </div>
@@ -459,17 +459,17 @@ To search for specific objects, you add filters to the search. By setting the on
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/neo-docs/js/clipboard.min.js?1643068162></script>
-<script src=/neo-docs/js/perfect-scrollbar.min.js?1643068162></script>
-<script src=/neo-docs/js/perfect-scrollbar.jquery.min.js?1643068162></script>
-<script src=/neo-docs/js/jquery.sticky.js?1643068162></script>
-<script src=/neo-docs/js/featherlight.min.js?1643068162></script>
-<script src=/neo-docs/js/highlight.pack.js?1643068162></script>
+<script src=/neo-docs/js/clipboard.min.js?1643068196></script>
+<script src=/neo-docs/js/perfect-scrollbar.min.js?1643068196></script>
+<script src=/neo-docs/js/perfect-scrollbar.jquery.min.js?1643068196></script>
+<script src=/neo-docs/js/jquery.sticky.js?1643068196></script>
+<script src=/neo-docs/js/featherlight.min.js?1643068196></script>
+<script src=/neo-docs/js/highlight.pack.js?1643068196></script>
 <script>hljs.initHighlightingOnLoad()</script>
-<script src=/neo-docs/js/modernizr.custom-3.6.0.js?1643068162></script>
-<script src=/neo-docs/js/learn.js?1643068162></script>
-<script src=/neo-docs/js/hugo-learn.js?1643068162></script>
-<script src=/neo-docs/mermaid/mermaid.js?1643068162></script>
+<script src=/neo-docs/js/modernizr.custom-3.6.0.js?1643068196></script>
+<script src=/neo-docs/js/learn.js?1643068196></script>
+<script src=/neo-docs/js/hugo-learn.js?1643068196></script>
+<script src=/neo-docs/mermaid/mermaid.js?1643068196></script>
 <script>mermaid.initialize({startOnLoad:!0})</script>
 </body>
 </html>
