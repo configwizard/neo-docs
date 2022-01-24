@@ -6,18 +6,18 @@
 <meta name=description content>
 <link rel=icon href=/neo-docs/images/favicon.png type=image/png>
 <title>Objects :: Neo FS Tutorials</title>
-<link href=/neo-docs/css/nucleus.css?1643068196 rel=stylesheet>
-<link href=/neo-docs/css/fontawesome-all.min.css?1643068196 rel=stylesheet>
-<link href=/neo-docs/css/hybrid.css?1643068196 rel=stylesheet>
-<link href=/neo-docs/css/featherlight.min.css?1643068196 rel=stylesheet>
-<link href=/neo-docs/css/perfect-scrollbar.min.css?1643068196 rel=stylesheet>
-<link href=/neo-docs/css/auto-complete.css?1643068196 rel=stylesheet>
-<link href=/neo-docs/css/atom-one-dark-reasonable.css?1643068196 rel=stylesheet>
-<link href=/neo-docs/css/theme.css?1643068196 rel=stylesheet>
-<link href=/neo-docs/css/tabs.css?1643068196 rel=stylesheet>
-<link href=/neo-docs/css/hugo-theme.css?1643068196 rel=stylesheet>
-<link href=/neo-docs/css/theme-green.css?1643068196 rel=stylesheet>
-<script src=/neo-docs/js/jquery-3.3.1.min.js?1643068196></script>
+<link href=/neo-docs/css/nucleus.css?1643068501 rel=stylesheet>
+<link href=/neo-docs/css/fontawesome-all.min.css?1643068501 rel=stylesheet>
+<link href=/neo-docs/css/hybrid.css?1643068501 rel=stylesheet>
+<link href=/neo-docs/css/featherlight.min.css?1643068501 rel=stylesheet>
+<link href=/neo-docs/css/perfect-scrollbar.min.css?1643068501 rel=stylesheet>
+<link href=/neo-docs/css/auto-complete.css?1643068501 rel=stylesheet>
+<link href=/neo-docs/css/atom-one-dark-reasonable.css?1643068501 rel=stylesheet>
+<link href=/neo-docs/css/theme.css?1643068501 rel=stylesheet>
+<link href=/neo-docs/css/tabs.css?1643068501 rel=stylesheet>
+<link href=/neo-docs/css/hugo-theme.css?1643068501 rel=stylesheet>
+<link href=/neo-docs/css/theme-green.css?1643068501 rel=stylesheet>
+<script src=/neo-docs/js/jquery-3.3.1.min.js?1643068501></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/neo-docs/examples/objects/>
@@ -32,10 +32,10 @@
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script type=text/javascript src=/neo-docs/js/lunr.min.js?1643068196></script>
-<script type=text/javascript src=/neo-docs/js/auto-complete.js?1643068196></script>
+<script type=text/javascript src=/neo-docs/js/lunr.min.js?1643068501></script>
+<script type=text/javascript src=/neo-docs/js/auto-complete.js?1643068501></script>
 <script type=text/javascript>var baseurl="https://amlwwalker.github.io/neo-docs/"</script>
-<script type=text/javascript src=/neo-docs/js/search.js?1643068196></script>
+<script type=text/javascript src=/neo-docs/js/search.js?1643068501></script>
 </div>
 <section id=homelinks>
 <ul>
@@ -140,6 +140,7 @@ Helpers
 <li><a href=#uploading-objects>Uploading Objects</a>
 <ul>
 <li><a href=#attributes>Attributes</a></li>
+<li><a href=#session-token>Session Token</a></li>
 </ul>
 </li>
 <li><a href=#upload>Upload</a></li>
@@ -187,7 +188,7 @@ Objects
 </span><span style=color:#75715e></span><span style=color:#a6e22e>timeStampAttr</span>.<span style=color:#a6e22e>SetValue</span>(<span style=color:#a6e22e>strconv</span>.<span style=color:#a6e22e>FormatInt</span>(<span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Now</span>().<span style=color:#a6e22e>Unix</span>(), <span style=color:#ae81ff>10</span>))
 
 <span style=color:#a6e22e>fileNameAttr</span> <span style=color:#f92672>:=</span> new(<span style=color:#a6e22e>object</span>.<span style=color:#a6e22e>Attribute</span>)
-<span style=color:#a6e22e>fileNameAttr</span>.<span style=color:#a6e22e>SetKey</span>(<span style=color:#a6e22e>object</span>.<span style=color:#a6e22e>AttributeFileName</span>) <span style=color:#75715e>// AttributeFileName key is the filename to be associated with the object. This will become useful later
+<span style=color:#a6e22e>fileNameAttr</span>.<span style=color:#a6e22e>SetKey</span>(<span style=color:#a6e22e>object</span>.<span style=color:#a6e22e>AttributeFileName</span>) <span style=color:#75715e>// AttributeFileName key is the filename to be associated with the object. 
 </span><span style=color:#75715e></span><span style=color:#a6e22e>fileNameAttr</span>.<span style=color:#a6e22e>SetValue</span>(<span style=color:#a6e22e>path</span>.<span style=color:#a6e22e>Base</span>(<span style=color:#a6e22e>filepath</span>))
 <span style=color:#a6e22e>attributes</span> = append(<span style=color:#a6e22e>attributes</span>, []<span style=color:#f92672>*</span><span style=color:#a6e22e>object</span>.<span style=color:#a6e22e>Attribute</span>{<span style=color:#a6e22e>timeStampAttr</span>, <span style=color:#a6e22e>fileNameAttr</span>}<span style=color:#f92672>...</span>)
 
@@ -204,6 +205,10 @@ Objects
 </div>
 </div>
 </p>
+<div class="notices note"><p>If you have set the FileName attribute, you can also refer to the object by its filename, i.e
+<a href=https://http.testnet.fs.neo.org/CONTAINER_ID/upload.png>https://http.testnet.fs.neo.org/CONTAINER_ID/upload.png</a> when its uploaded, (see <a href=/neo-docs/examples/acl-permissions>acl permissions</a>)</p>
+</div>
+<h3 id=session-token>Session Token</h3>
 <p>See <a href=/neo-docs/examples/tokens>tokens</a> for how to create a session token</p>
 <h2 id=upload>Upload</h2>
 <div class=tab-panel>
@@ -250,10 +255,6 @@ Objects
 </div>
 <p>Depending on your container&rsquo;s permissions you should now be able to view the file you uploaded at:</p>
 <p><a href=https://http.testnet.fs.neo.org/CONTAINER_ID/OBJECT_ID>https://http.testnet.fs.neo.org/CONTAINER_ID/OBJECT_ID</a></p>
-<div class="notices note"><p>If you have set the FileName attribute, you can also refer to the object by its filename, i.e
-<a href=https://http.testnet.fs.neo.org/CONTAINER_ID/upload.png>https://http.testnet.fs.neo.org/CONTAINER_ID/upload.png</a>
-see below</p>
-</div>
 <div class=tab-panel>
 <div class=tab-nav>
 <button data-tab-item=Go data-tab-group=default class="tab-nav-button btn active" onclick="switchTab('default','Go')">Go</button>
@@ -264,8 +265,8 @@ see below</p>
 <div data-tab-item=Go data-tab-group=default class="tab-item active">
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>fileNameAttr</span> <span style=color:#f92672>:=</span> new(<span style=color:#a6e22e>object</span>.<span style=color:#a6e22e>Attribute</span>)
 <span style=color:#a6e22e>fileNameAttr</span>.<span style=color:#a6e22e>SetKey</span>(<span style=color:#a6e22e>object</span>.<span style=color:#a6e22e>AttributeFileName</span>) <span style=color:#75715e>// AttributeFileName key is the filename to be associated with the object. 
-</span><span style=color:#75715e></span><span style=color:#a6e22e>fileNameAttr</span>.<span style=color:#a6e22e>SetValue</span>(<span style=color:#a6e22e>path</span>.<span style=color:#a6e22e>Base</span>(<span style=color:#a6e22e>filepath</span>))
-</code></pre></div>
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fileNameAttr</span>.<span style=color:#a6e22e>SetValue</span>(<span style=color:#a6e22e>path</span>.<span style=color:#a6e22e>Base</span>(<span style=color:#a6e22e>filepath</span>)) <span style=color:#75715e>//path.Base(filepath) returns the filename from a filepath
+</span></code></pre></div>
 </div>
 <div data-tab-item=Python data-tab-group=default class=tab-item>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>print(<span style=color:#e6db74>&#34;please help by opening a Pull Request and filling in these code snippets!&#34;</span>)
@@ -277,10 +278,6 @@ see below</p>
 </div>
 </div>
 </div>
-<div class="notices info"><p>Go devs note <code>path.Base(filepath)</code> will give you back just the filename part of a filepath:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>filepath</span> <span style=color:#f92672>:=</span> <span style=color:#f92672>/</span><span style=color:#a6e22e>users</span><span style=color:#f92672>/</span><span style=color:#a6e22e>bond</span><span style=color:#f92672>/</span><span style=color:#a6e22e>home</span><span style=color:#f92672>/</span><span style=color:#a6e22e>upload</span>.<span style=color:#a6e22e>png</span>
-<span style=color:#a6e22e>filename</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>path</span>.<span style=color:#a6e22e>Base</span>(<span style=color:#a6e22e>filepath</span>) <span style=color:#75715e>//filename = upload.png
-</span></code></pre></div></div>
 <h2 id=listing-the-content-of-a-container>Listing the content of a container</h2>
 <p>Once you have uploaded objects to a container, you will want to list them out. Listing is a special case of searching within a container.
 To search for specific objects, you add filters to the search. By setting the only filter as a root filter, it will list everything within the container
@@ -459,17 +456,17 @@ To search for specific objects, you add filters to the search. By setting the on
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/neo-docs/js/clipboard.min.js?1643068196></script>
-<script src=/neo-docs/js/perfect-scrollbar.min.js?1643068196></script>
-<script src=/neo-docs/js/perfect-scrollbar.jquery.min.js?1643068196></script>
-<script src=/neo-docs/js/jquery.sticky.js?1643068196></script>
-<script src=/neo-docs/js/featherlight.min.js?1643068196></script>
-<script src=/neo-docs/js/highlight.pack.js?1643068196></script>
+<script src=/neo-docs/js/clipboard.min.js?1643068501></script>
+<script src=/neo-docs/js/perfect-scrollbar.min.js?1643068501></script>
+<script src=/neo-docs/js/perfect-scrollbar.jquery.min.js?1643068501></script>
+<script src=/neo-docs/js/jquery.sticky.js?1643068501></script>
+<script src=/neo-docs/js/featherlight.min.js?1643068501></script>
+<script src=/neo-docs/js/highlight.pack.js?1643068501></script>
 <script>hljs.initHighlightingOnLoad()</script>
-<script src=/neo-docs/js/modernizr.custom-3.6.0.js?1643068196></script>
-<script src=/neo-docs/js/learn.js?1643068196></script>
-<script src=/neo-docs/js/hugo-learn.js?1643068196></script>
-<script src=/neo-docs/mermaid/mermaid.js?1643068196></script>
+<script src=/neo-docs/js/modernizr.custom-3.6.0.js?1643068501></script>
+<script src=/neo-docs/js/learn.js?1643068501></script>
+<script src=/neo-docs/js/hugo-learn.js?1643068501></script>
+<script src=/neo-docs/mermaid/mermaid.js?1643068501></script>
 <script>mermaid.initialize({startOnLoad:!0})</script>
 </body>
 </html>
