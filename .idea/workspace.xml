@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7c4a610-e9b8-457d-828f-c68e05eeaf21" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.toml" beforeDir="false" afterPath="$PROJECT_DIR$/config.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/examples/acl-permissions.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/examples/acl-permissions.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hugo-theme-learn" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hugo-theme-learn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/hugo-theme-learn/layouts/partials/logo.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hugo-theme-learn/layouts/partials/logo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/hugo-theme-learn/layouts/partials/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hugo-theme-learn/layouts/partials/menu.html" afterDir="false" />
     </list>
