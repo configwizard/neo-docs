@@ -8,10 +8,7 @@ Please join us on the Neo discord server if you would like any support and pleas
 
 With time there will be an easy to use 'get things done' API for Go, and a starter app for Javascript developers to build on top of.
 
-Best place to **get started**
-
-
-{{% notice note %}}
+{{% notice info %}}
 Best place to get started is probably in the [concepts](/neo-docs/introduction/concepts) area, or if you want to get cracking head over the [creating a wallet!](/neo-docs/examples/wallets)
 
 {{% /notice %}}

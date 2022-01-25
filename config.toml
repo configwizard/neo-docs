@@ -4,9 +4,10 @@ title = 'Neo FS Tutorials'
 # Change the default theme to be use when building the site with Hugo
 theme = "hugo-theme-learn"
 [params]
+landingPageURL='https://amlwwalker.github.io/neo-docs/'
 # Change default color scheme with a variant one. Can be "red", "blue", "green".
 themeVariant = "green"
-landingPageURL = '/neo-docs/'
+#landingPageURL = 'https://amlwwalker.github.io/neo-docs/'
 # For search functionality
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
