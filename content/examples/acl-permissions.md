@@ -9,6 +9,7 @@ Permissions can be applied to both containers and to individual tokens that are 
 
 Containers can have permissions attached to them allowing for many different privileges.
 
+You can read further about this in the [neofs-spec](https://nspcc.ru/upload/neofs-spec-latest.pdf#13)
 When creating a container, you are going to need to create a permission
 
 {{< tabs >}}
