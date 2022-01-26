@@ -31,6 +31,12 @@ timeStampAttr.SetValue(strconv.FormatInt(time.Now().Unix(), 10))
 fileNameAttr := new(object.Attribute)
 fileNameAttr.SetKey(object.AttributeFileName) // AttributeFileName key is the filename to be associated with the object. 
 fileNameAttr.SetValue(path.Base(filepath)) //path.Base(filepath) returns the last element of a file path (usually the filename)
+
+expirationEpochAttr := new(object.Attribute)
+expirationEpochAttr.SetKey(object.AttributeFileName) // AttributeFileName key is the filename to be associated with the object. 
+expirationEpochAttr.SetValue(path.Base(filepath)) //path.Base(filepath) returns the last element of a file path (usually the filename)
+
+
 attributes = append(attributes, []*object.Attribute{timeStampAttr, fileNameAttr}...)
 
 ```

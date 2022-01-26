@@ -16,7 +16,7 @@ Before being able to create a container, you will need to
 
 ### Owner ID
 
-You will need to get the owner ID from the wallet private key. The owner ID is not the same as the wallet ID or public key. A straight forward way to do this is
+Before continuing, you will need to get the owner ID from the wallet private key. The owner ID is not the same as the wallet ID or public key. A straight forward way to do this is
 
 {{< tabs >}}
 {{% tab name="Go" %}}
@@ -41,7 +41,14 @@ Console.WriteLine("please help by opening a Pull Request and filling in these co
 {{% /tab %}}
 {{< /tabs >}}
 
-Now we can get on with creating a container
+### Creating a container
+
+Now we can get on with creating a container.
+
+You will need
+
+1. A container placement policy (`placementPolicy`)
+2. A set of Basic ACL permissions (`permissions`)
 
 {{< tabs >}}
 {{% tab name="Go" %}}
