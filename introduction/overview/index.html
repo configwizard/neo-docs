@@ -5,7 +5,7 @@
 <meta name=generator content="Hugo 0.92.0">
 <meta name=description content>
 <link rel=icon href=/neo-docs/images/favicon.png type=image/png>
-<title>Tags :: English</title>
+<title>Overview :: English</title>
 <link href=/neo-docs/css/nucleus.css?1643242839 rel=stylesheet>
 <link href=/neo-docs/css/fontawesome-all.min.css?1643242839 rel=stylesheet>
 <link href=/neo-docs/css/hybrid.css?1643242839 rel=stylesheet>
@@ -20,7 +20,7 @@
 <script src=/neo-docs/js/jquery-3.3.1.min.js?1643242839></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
-<body data-url=/neo-docs/tags/>
+<body data-url=/neo-docs/introduction/overview/>
 <nav id=sidebar>
 <div id=header-wrapper>
 <div id=header>
@@ -46,12 +46,13 @@
 </section>
 <div class=highlightable>
 <ul class=topics>
-<li data-nav-id=/neo-docs/introduction/ title=Introduction class=dd-item>
+<li data-nav-id=/neo-docs/introduction/ title=Introduction class="dd-item
+parent">
 <a href=/neo-docs/introduction/>
 <b>X. </b>Introduction
 </a>
 <ul>
-<li data-nav-id=/neo-docs/introduction/overview/ title=Overview class=dd-item>
+<li data-nav-id=/neo-docs/introduction/overview/ title=Overview class="dd-item active">
 <a href=/neo-docs/introduction/overview/>
 <b>X. </b>Overview
 </a>
@@ -123,7 +124,7 @@ Helpers
 <a class=padding>
 <i class="fas fa-language fa-fw"></i>
 <div class=select-style>
-<select id=select-language onchange="location=this.value"><option id=en value=https://amlwwalker.github.io/neo-docs/tags/ selected></option><option id=fr value=https://amlwwalker.github.io/neo-docs/fr/tags/></option></select><svg id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="255" height="255" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255"><g><g id="arrow-drop-down"><polygon points="0,63.75 127.5,191.25 255,63.75"/></g></g></svg>
+<select id=select-language onchange="location=this.value"><option id=en value=https://amlwwalker.github.io/neo-docs/introduction/overview/ selected></option></select><svg id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="255" height="255" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255"><g><g id="arrow-drop-down"><polygon points="0,63.75 127.5,191.25 255,63.75"/></g></g></svg>
 </div>
 </a>
 </li>
@@ -147,11 +148,24 @@ Helpers
 </span>
 <span id=toc-menu><i class="fas fa-list-alt"></i></span>
 <span class=links>
-<a href=/neo-docs/></a> > Tags
+<a href=/neo-docs/></a> > <a href=/neo-docs/introduction/>Introduction</a> > Overview
 </span>
 </div>
 <div class=progress>
 <div class=wrapper>
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li><a href=#concepts>Concepts</a></li>
+<li><a href=#starting-out>Starting out</a></li>
+<li><a href=#libraries>Libraries</a></li>
+<li><a href=#references>References</a></li>
+<li><a href=#with-thanks-to>With Thanks To</a></li>
+</ul>
+</li>
+</ul>
+</nav>
 </div>
 </div>
 </div>
@@ -160,17 +174,36 @@ Helpers
 </div>
 <div id=body-inner>
 <h1>
-tag ::
-Tags
+Overview
 </h1>
+<h3 id=concepts>Concepts</h3>
+<p>This chapter outlines the <a href=/neo-docs/introduction/concepts>concepts</a> and top level points required to understand and enjoy building on neo & NeoFS</p>
+<h3 id=starting-out>Starting out</h3>
+<p>You will need:</p>
+<ol>
+<li>Go language installed and running</li>
+<li>Clone, or <code>go get</code> the libraries outlined below. Confirm you can import them into a project</li>
+<li>Read the <a href=/neo-docs/tutorials/wallets/>wallets</a> page as it will outline the basis of working with Neo and NeoFS - a wallet.</li>
+<li>Neo/Gas in your wallet. You can get these from the <a href=https://neowish.ngd.network/#/>testnet faucet here</a></li>
+<li>These libraries will assume you are using the testnet throughout. All urls referenced can be retrieved from NeoFS or from Dora the explorer.</li>
+</ol>
+<h3 id=libraries>Libraries</h3>
+<p><a href=/neo-docs/introduction/libraries>Libraries</a> covers the packages and libraries that are required to interact with Neo and NeoFS in Go</p>
+<h3 id=references>References</h3>
 <ul>
+<li><a href=https://nspcc.ru/upload/neofs-spec-latest.pdf#13>neofs-spec</a></li>
+</ul>
+<h3 id=with-thanks-to>With Thanks To</h3>
+<ul>
+<li><a href=https://github.com/nspcc-dev/>NSPCC team</a> - team behind NeoFS, the <a href=https://github.com/nspcc-dev/neofs-sdk-go>neo-go-sdk</a> and the <a href=github.com/nspcc-dev/neo-go>neo-go</a> packages</li>
 </ul>
 <footer class=footline>
 </footer>
 </div>
 </div>
 <div id=navigation>
-<a class="nav nav-next" href=/neo-docs/introduction/ title=Introduction style=margin-right:0><i class="fa fa-chevron-right"></i></a>
+<a class="nav nav-prev" href=/neo-docs/introduction/ title=Introduction> <i class="fa fa-chevron-left"></i></a>
+<a class="nav nav-next" href=/neo-docs/introduction/libraries/ title=Libraries style=margin-right:0><i class="fa fa-chevron-right"></i></a>
 </div>
 </section>
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
