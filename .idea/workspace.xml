@@ -5,19 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7c4a610-e9b8-457d-828f-c68e05eeaf21" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/content/tutorials/acl-permissions.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/examples/_index.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/tutorials/_index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/examples/acl-permissions.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/examples/clients.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/tutorials/clients.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/examples/containers.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/tutorials/containers.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/examples/helpers.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/tutorials/helpers.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/examples/objects.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/tutorials/objects.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/examples/policies.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/tutorials/policies.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/examples/tokens.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/tutorials/tokens.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/examples/wallets.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/tutorials/wallets.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/introduction/_index.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/introduction/_index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/introduction/libraries.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/introduction/libraries.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/_index.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/_index.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

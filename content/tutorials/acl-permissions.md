@@ -97,7 +97,7 @@ _We are creating a rule for when an actor attempts to make a request to our cont
      * Or a specific public key of an account
    * For each type of target, you can specify whether you want it to be included in the rule
 3. **Filters**
-   * Where these ACL rules can get really powerful is when they are combined with object attributes. Once you have read about [object attributes](/neo-docs/examples/objects) you will know that when an object is uploaded to a container, attributes can be attached to it. These attributes can be searched/filtered as part of building up an ACL rule
+   * Where these ACL rules can get really powerful is when they are combined with object attributes. Once you have read about [object attributes](/neo-docs/tutorials/objects) you will know that when an object is uploaded to a container, attributes can be attached to it. These attributes can be searched/filtered as part of building up an ACL rule
 4. **Action**
    * And **finally** the whole point of the rule in the first place - the action decides what the rule, if a match is made, either to `ALLOW` or `DENY` the request
 
@@ -197,7 +197,7 @@ table.AddRecord(othersRecord)
 The first thing you can do is specify this against the whole container. This maybe something you would do if you were wanting to share the container's contents with someone.
 
 You will need
-1. a [NeoFS client](/neo-docs/examples/clients)
+1. a [NeoFS client](/neo-docs/tutorials/clients)
 
 
 ```go
@@ -225,11 +225,11 @@ Of course this can be handled better with channels
 
 #### Bearer Token
 
-There is more on [Bearer Tokens here](/neo-docs/examples/tokens), however you can add these Extended ACL rules to them so that the account that is issued with the token, can access objects within the container based on the Extended ACL rules.
+There is more on [Bearer Tokens here](/neo-docs/tutorials/tokens), however you can add these Extended ACL rules to them so that the account that is issued with the token, can access objects within the container based on the Extended ACL rules.
 
 To create a bearer token, you will need the private key of the container owner (`containerOwnerKey`). 
 
-This is further explained in [Bearer Tokens](/neo-docs/examples/tokens)
+This is further explained in [Bearer Tokens](/neo-docs/tutorials/tokens)
 
 ```go
 btoken := new(token.BearerToken)
@@ -247,5 +247,5 @@ if err != nil {
     return fmt.Errorf("error marshaling token: %w", err)
 }
 ```
-You can then issue the tokenBytes to whichever account should have it. See [Bearer Tokens](/neo-docs/examples/tokens) for more information
+You can then issue the tokenBytes to whichever account should have it. See [Bearer Tokens](/neo-docs/tutorials/tokens) for more information
 

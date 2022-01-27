@@ -6,6 +6,6 @@ chapter = true
 pre = "<b>X. </b>"
 +++
 
-# Code examples
+# Code Tutorials
 
-Examples of building the different elements required to communicate effectively with NeoFS
+Tutorials on the concepts of Neo and NeoFS and building with the different elements that are available to build on Neo and NeoFS

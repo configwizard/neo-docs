@@ -114,7 +114,7 @@ Console.WriteLine("please help by opening a Pull Request and filling in these co
 {{% /tab %}}
 {{< /tabs >}}
 
-* Private key can be retrieved from a [wallet](/neo-docs/examples/wallets) - its type is `*ecdsa.PrivateKey`
+* Private key can be retrieved from a [wallet](/neo-docs/tutorials/wallets) - its type is `*ecdsa.PrivateKey`
 * The network is a string, for now you can use 
 
 {{< tabs >}}

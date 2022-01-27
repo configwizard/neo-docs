@@ -3,7 +3,7 @@ title: "Objects"
 date: 2022-01-24T11:23:17Z
 ---
 
-Objects represent items stored within a [container](/neo-docs/examples/containers). These are subject to the permissions of the container being the most relaxed possible permissions that can be applied to an object. It is possible using [Session/Bearer Tokens](/neo-docs/examples/tokens) to restrict permissions further on objects within a container however
+Objects represent items stored within a [container](/neo-docs/tutorials/containers). These are subject to the permissions of the container being the most relaxed possible permissions that can be applied to an object. It is possible using [Session/Bearer Tokens](/neo-docs/tutorials/tokens) to restrict permissions further on objects within a container however
 
 Please note actions on objects are restricted by the permissions on the container AND the permissions of the token used to access the functions. 
 
@@ -11,10 +11,10 @@ Please note actions on objects are restricted by the permissions on the containe
 
 Before uploading an object, you will need
 
-1. A [session token](/neo-docs/examples/tokens)
-2. A [container](/neo-docs/examples/containers) ID to upload the object to, with the correct permissions
-3. An [object](/neo-docs/examples/objects) to upload (`filepath`)
-4. Have created a [NeoFS client](/neo-docs/examples/clients) (`cli`)
+1. A [session token](/neo-docs/tutorials/tokens)
+2. A [container](/neo-docs/tutorials/containers) ID to upload the object to, with the correct permissions
+3. An [object](/neo-docs/tutorials/objects) to upload (`filepath`)
+4. Have created a [NeoFS client](/neo-docs/tutorials/clients) (`cli`)
 
 ### Attributes
 
@@ -55,11 +55,11 @@ Console.WriteLine("please help by opening a Pull Request and filling in these co
 
 {{% notice note %}}
 If you have set the FileName attribute, you can also refer to the object by its filename, i.e
-https://http.testnet.fs.neo.org/CONTAINER_ID/upload.png when its uploaded, (see [acl permissions](/neo-docs/examples/acl-permissions))
+https://http.testnet.fs.neo.org/CONTAINER_ID/upload.png when its uploaded, (see [acl permissions](/neo-docs/tutorials/acl-permissions))
 {{% /notice %}}
 
 ### Session Token
-See [tokens](/neo-docs/examples/tokens) for how to create a session token
+See [tokens](/neo-docs/tutorials/tokens) for how to create a session token
 
 ## Upload 
 {{< tabs >}}
