@@ -6,6 +6,5 @@ chapter = true
 pre = "<b>X. </b>"
 +++
 
-# NeoFS Concepts
-
-This chapter outlines the concepts and top level points required to understand and enjoy building on NeoFS
+## Introduction
+This chapter covers information surrounding the use of Neo and NeoFS in Go

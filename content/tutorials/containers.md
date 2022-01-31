@@ -9,14 +9,14 @@ Containers manage the permissions/access of a group of objects that are being st
 
 Before being able to create a container, you will need to 
 
-1. create a [policy](/neo-docs/examples/policies) (`placementPolicy`)
-2. have access to a private key. This is retrieved from a json file using the [helper function](/neo-docs/examples/helpers/#get-credentials-from-path) `helper.GetCredentialsFromPath` (`key`)
+1. create a [policy](/neo-docs/tutorials/policies) (`placementPolicy`)
+2. have access to a private key. This is retrieved from a json file using the [helper function](/neo-docs/tutorials/helpers/#get-credentials-from-path) `helper.GetCredentialsFromPath` (`key`)
 3. Decide on a set of permissions, (`permissions`)
-4. Have created a [NeoFS client](/neo-docs/examples/clients) (`cli`)
+4. Have created a [NeoFS client](/neo-docs/tutorials/clients) (`cli`)
 
 ### Owner ID
 
-You will need to get the owner ID from the wallet private key. The owner ID is not the same as the wallet ID or public key. A straight forward way to do this is
+Before continuing, you will need to get the owner ID from the wallet private key. The owner ID is not the same as the wallet ID or public key. A straight forward way to do this is
 
 {{< tabs >}}
 {{% tab name="Go" %}}
@@ -41,7 +41,14 @@ Console.WriteLine("please help by opening a Pull Request and filling in these co
 {{% /tab %}}
 {{< /tabs >}}
 
-Now we can get on with creating a container
+### Creating a container
+
+Now we can get on with creating a container.
+
+You will need
+
+1. A container placement policy (`placementPolicy`)
+2. A set of Basic ACL permissions (`permissions`)
 
 {{< tabs >}}
 {{% tab name="Go" %}}
