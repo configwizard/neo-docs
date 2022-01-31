@@ -25,7 +25,7 @@ print("please help by opening a Pull Request and filling in these code snippets!
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
+var permissions = (uint)BasicAcl.ReadOnlyBasicRule;
 ```
 {{% /tab %}}
 {{< /tabs >}}
