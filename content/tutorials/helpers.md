@@ -27,7 +27,7 @@ print("please help by opening an MR and filling in these code snippets!")
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-var key = $"{aprivateKey}".LoadWif();
+var key = $"{privateKey}".LoadWif();
 var ownerid = OwnerID.FromScriptHash(key.PublicKey().PublicKeyToScriptHash());
 ```
 {{% /tab %}}
@@ -62,7 +62,8 @@ print("please help by opening an MR and filling in these code snippets!")
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-Console.WriteLine("please help by opening an MR and filling in these code snippets!");
+var key = $"{privateKey}".LoadWif();
+var uint160 = key.PublicKey().PublicKeyToScriptHash();
 ```
 {{% /tab %}}
 {{< /tabs >}}
