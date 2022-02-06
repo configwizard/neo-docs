@@ -2,22 +2,22 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=generator content="Hugo 0.92.0">
+<meta name=generator content="Hugo 0.92.1">
 <meta name=description content>
 <link rel=icon href=/neo-docs/images/favicon.png type=image/png>
 <title>Policies :: English</title>
-<link href=/neo-docs/css/nucleus.css?1643242965 rel=stylesheet>
-<link href=/neo-docs/css/fontawesome-all.min.css?1643242965 rel=stylesheet>
-<link href=/neo-docs/css/hybrid.css?1643242965 rel=stylesheet>
-<link href=/neo-docs/css/featherlight.min.css?1643242965 rel=stylesheet>
-<link href=/neo-docs/css/perfect-scrollbar.min.css?1643242965 rel=stylesheet>
-<link href=/neo-docs/css/auto-complete.css?1643242965 rel=stylesheet>
-<link href=/neo-docs/css/atom-one-dark-reasonable.css?1643242965 rel=stylesheet>
-<link href=/neo-docs/css/theme.css?1643242965 rel=stylesheet>
-<link href=/neo-docs/css/tabs.css?1643242965 rel=stylesheet>
-<link href=/neo-docs/css/hugo-theme.css?1643242965 rel=stylesheet>
-<link href=/neo-docs/css/theme-green.css?1643242965 rel=stylesheet>
-<script src=/neo-docs/js/jquery-3.3.1.min.js?1643242965></script>
+<link href=/neo-docs/css/nucleus.css?1644146752 rel=stylesheet>
+<link href=/neo-docs/css/fontawesome-all.min.css?1644146752 rel=stylesheet>
+<link href=/neo-docs/css/hybrid.css?1644146752 rel=stylesheet>
+<link href=/neo-docs/css/featherlight.min.css?1644146752 rel=stylesheet>
+<link href=/neo-docs/css/perfect-scrollbar.min.css?1644146752 rel=stylesheet>
+<link href=/neo-docs/css/auto-complete.css?1644146752 rel=stylesheet>
+<link href=/neo-docs/css/atom-one-dark-reasonable.css?1644146752 rel=stylesheet>
+<link href=/neo-docs/css/theme.css?1644146752 rel=stylesheet>
+<link href=/neo-docs/css/tabs.css?1644146752 rel=stylesheet>
+<link href=/neo-docs/css/hugo-theme.css?1644146752 rel=stylesheet>
+<link href=/neo-docs/css/theme-green.css?1644146752 rel=stylesheet>
+<script src=/neo-docs/js/jquery-3.3.1.min.js?1644146752></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/neo-docs/tutorials/policies/>
@@ -32,10 +32,10 @@
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script type=text/javascript src=/neo-docs/js/lunr.min.js?1643242965></script>
-<script type=text/javascript src=/neo-docs/js/auto-complete.js?1643242965></script>
+<script type=text/javascript src=/neo-docs/js/lunr.min.js?1644146752></script>
+<script type=text/javascript src=/neo-docs/js/auto-complete.js?1644146752></script>
 <script type=text/javascript>var baseurl="https://amlwwalker.github.io/neo-docs/"</script>
-<script type=text/javascript src=/neo-docs/js/search.js?1643242965></script>
+<script type=text/javascript src=/neo-docs/js/search.js?1644146752></script>
 </div>
 <section id=homelinks>
 <ul>
@@ -153,7 +153,23 @@ Helpers
 </div>
 <div class=progress>
 <div class=wrapper>
-<nav id=TableOfContents></nav>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#overview>Overview</a>
+<ul>
+<li><a href=#filters>Filters</a></li>
+<li><a href=#selectors>Selectors</a></li>
+<li><a href=#replicas>Replicas</a></li>
+<li><a href=#container-backup-factor-cbf>Container backup Factor (CBF)</a></li>
+</ul>
+</li>
+<li><a href=#examples>Examples</a>
+<ul>
+<li><a href=#references>References</a></li>
+</ul>
+</li>
+</ul>
+</nav>
 </div>
 </div>
 </div>
@@ -165,7 +181,131 @@ Helpers
 Policies
 </h1>
 <p>Before we can create a container, we need to define the policy. A policy defines which storage nodes on NeoFS you are happy to store your data on.</p>
-<p>&ndash; todo, how do policies get defined?</p>
+<p>The approach to do this is to use the simple policy language provided. A policy is made up of 4 components</p>
+<h2 id=overview>Overview</h2>
+<h3 id=filters>Filters</h3>
+<p>Filters are used to decide which nodes meet the requirements to store an object. Think of it as &lsquo;filtering&rsquo; out nodes based on some condition. All nodes have attributes that can be used to filter their capabilities and whether they meet the requirements for the policy.</p>
+<p>A filter can check for instance if a node is situated in Europe, and the data would be stored on SSDs (solid state drives).</p>
+<p>A filter contains</p>
+<ul>
+<li>A Key
+<ul>
+<li>The name of the attribute to filter</li>
+</ul>
+</li>
+<li>A value
+<ul>
+<li>The value to compare the attribute with</li>
+</ul>
+</li>
+<li>An operation
+<ul>
+<li>The way in which to make the comparison (less than, greater then, equal to etc)</li>
+<li>There are 8 filters:
+<ul>
+<li><code>EQ</code> equal to</li>
+<li><code>NE</code> not equal to</li>
+<li><code>GE</code> greater than or equal to</li>
+<li><code>GT</code> greater than</li>
+<li><code>LT</code> less than</li>
+<li><code>LE</code> less than or equal to</li>
+<li><code>OR</code> or</li>
+<li><code>AND</code> and</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>A filter could therefore be</p>
+<ul>
+<li><code>Country = Italy</code></li>
+<li><code>Rating > 3.5</code></li>
+</ul>
+<p>Filters can also have names so they can be grouped into &lsquo;meanings&rsquo;, for instance</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>Country <span style=color:#f92672>=</span> Finland OR Country <span style=color:#f92672>=</span> Iceland AS ColdCountry
+</code></pre></div><p>Now you can refer to Finland and Iceland as <code>ColdCountry</code> in further/more complex filters such as</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>FILTER Country EQ <span style=color:#e6db74>&#34;Finland&#34;</span> OR <span style=color:#e6db74>&#34;Iceland&#34;</span> AS ColdCountry
+FILTER ColdCountry AND StorageType <span style=color:#f92672>=</span> SSD AND Price &lt; <span style=color:#ae81ff>100</span>
+FILTER SSD EQ true AS IsSSD
+FILTER @IsSSD AND Country EQ <span style=color:#e6db74>&#34;RU&#34;</span> AND City EQ <span style=color:#e6db74>&#34;St.Petersburg&#34;</span> AS SPBSSD
+FILTER <span style=color:#e6db74>&#39;Continent&#39;</span> EQ <span style=color:#e6db74>&#39;North America&#39;</span> OR Continent EQ <span style=color:#e6db74>&#39;South America&#39;</span> AS Americas
+</code></pre></div><p>Note country codes come from the open <a href=https://raw.githubusercontent.com/jpatokal/openflights/master/data/countries.dat>flight database</a>. NeoFS uses the <a href=https://github.com/nspcc-dev/neofs-locode-db>code found here</a> to manage these codes</p>
+<h3 id=selectors>Selectors</h3>
+<p>Once a filter has found some nodes that adhere to the requirements, selectors can now be specified to decide which nodes end up in the container policy.</p>
+<p>Selectors are slightly easier to understand as part of examples, but the principles of selectors are outlined here</p>
+<p>A selector contains</p>
+<ul>
+<li>A name
+<ul>
+<li>a name that can be referred to</li>
+</ul>
+</li>
+<li>An Attribute
+<ul>
+<li>the name of the attribute that will be used to group nodes together. The nodes will be grouped into buckets based on the value of the attribute, or you however create &lsquo;random&rsquo; groups of nodes.</li>
+</ul>
+</li>
+<li>The count
+<ul>
+<li>The number of nodes that should be included in a bucket</li>
+</ul>
+</li>
+<li>A Clause
+<ul>
+<li>The clause specifies how to interpret the count e.g
+<ul>
+<li>SAME - choose nodes that are part of the same bucket</li>
+<li>DISTINCT - choose nodes that are from distinct buckets</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id=select--filter>Select + Filter</h4>
+<p>Its easiest to understand a placement policy when considering this combination defines minimal suitable container. <code>FILTER</code> specifies a subset of suitable nodes and <code>SELECT</code> picks exact nodes from this subset. If network map does not have enough nodes for a minimal suitable container, an error will be produced.</p>
+<p>Some examples of <code>SELECT</code> + <code>FILTER</code></p>
+<p>This one is simpler, select 6 nodes from any location.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>SELECT</span> <span style=color:#ae81ff>6</span> <span style=color:#a6e22e>FROM</span> <span style=color:#f92672>*</span>
+</code></pre></div><p>This example states the policy should select a single node that is located in St Petersburg, Russia</p>
+<pre tabindex=0><code>SELECT 1 FROM SPB
+FILTER Country EQ &quot;RU&quot; AND City EQ &quot;St.Petersburg&quot; AS SPB
+</code></pre><p>(note this isn&rsquo;t strictly accurate but works for the example - read about Container Backup Factors)</p>
+<h3 id=replicas>Replicas</h3>
+<p>Replicas define how many copies of objects should be stored within a Replica. A replica is a group of nodes where a single copy of an object is stored.</p>
+<p>With replicas you can decide how much redundancy you would like when it comes to a container&rsquo;s contents and making sure that the data isn&rsquo;t lost</p>
+<h3 id=container-backup-factor-cbf>Container backup Factor (CBF)</h3>
+<p>The container backup factor defines the maximum number of nodes that should be included within a container&rsquo;s set of nodes.</p>
+<p>You could have a placement policy that specifies there should be <code>10 nodes within 2 countries</code> with a Container Backup Factor of <code>2</code>.</p>
+<p>In this case the CBF will attempt to have 20 nodes in 2 countries, but anything from 10-20 is good and better, but not a failure.</p>
+<p>Note, although we have outlined CBF as a concept last here, it should come second, after <code>REP</code></p>
+<h2 id=examples>Examples</h2>
+<table>
+<thead>
+<tr>
+<th>Placement Policy</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>REP 3</code></td>
+<td>When no select or filter is defined, the default will be just to &ldquo;replicate 3 times selecting from anywhere, i.e <code>REP 3 SELECT 3 FROM *</code> . Note CBF defaults to 3, and still applies here, so replicate from 3-9 nodes if they exist</td>
+</tr>
+<tr>
+<td><code>REP 3 CBF 4</code></td>
+<td>As above, however CBF has been set to 4, so this will select between 3 and 12 nodes to replicate data over</td>
+</tr>
+<tr>
+<td><code>REP 1 IN SPB SELECT 1 IN City FROM * AS SPB</code></td>
+<td>1 replica in every city</td>
+</tr>
+<tr>
+<td><code>REP 2 SELECT 6 FROM *</code></td>
+<td>Replicate objects twice, selecting minimum of 6 nodes from anywhere. With CBF it will select up to 18 nodes</td>
+</tr>
+</tbody>
+</table>
+<p>When making policies, it should be defined in the order <code>REP, CBF, SELECT, FILTER</code></p>
 <p>Basic example</p>
 <div class=tab-panel>
 <div class=tab-nav>
@@ -191,6 +331,12 @@ SELECT 2 FROM * AS X
 </div>
 </div>
 </div>
+<h3 id=references>References</h3>
+<ul>
+<li>Spec <a href=https://nspcc.ru/upload/neofs-spec-latest.pdf#a>https://nspcc.ru/upload/neofs-spec-latest.pdf#a</a></li>
+<li>Tests/Examples <a href=https://github.com/nspcc-dev/neofs-sdk-go/blob/master/policy/query_test.go>https://github.com/nspcc-dev/neofs-sdk-go/blob/master/policy/query_test.go</a></li>
+<li>JSON format of policies (can help seeing complexity) <a href=https://github.com/nspcc-dev/neofs-sdk-go/blob/master/netmap/json_tests/filter_simple.json>https://github.com/nspcc-dev/neofs-sdk-go/blob/master/netmap/json_tests/filter_simple.json</a></li>
+</ul>
 <footer class=footline>
 </footer>
 </div>
@@ -203,17 +349,17 @@ SELECT 2 FROM * AS X
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/neo-docs/js/clipboard.min.js?1643242965></script>
-<script src=/neo-docs/js/perfect-scrollbar.min.js?1643242965></script>
-<script src=/neo-docs/js/perfect-scrollbar.jquery.min.js?1643242965></script>
-<script src=/neo-docs/js/jquery.sticky.js?1643242965></script>
-<script src=/neo-docs/js/featherlight.min.js?1643242965></script>
-<script src=/neo-docs/js/highlight.pack.js?1643242965></script>
+<script src=/neo-docs/js/clipboard.min.js?1644146752></script>
+<script src=/neo-docs/js/perfect-scrollbar.min.js?1644146752></script>
+<script src=/neo-docs/js/perfect-scrollbar.jquery.min.js?1644146752></script>
+<script src=/neo-docs/js/jquery.sticky.js?1644146752></script>
+<script src=/neo-docs/js/featherlight.min.js?1644146752></script>
+<script src=/neo-docs/js/highlight.pack.js?1644146752></script>
 <script>hljs.initHighlightingOnLoad()</script>
-<script src=/neo-docs/js/modernizr.custom-3.6.0.js?1643242965></script>
-<script src=/neo-docs/js/learn.js?1643242965></script>
-<script src=/neo-docs/js/hugo-learn.js?1643242965></script>
-<script src=/neo-docs/mermaid/mermaid.js?1643242965></script>
+<script src=/neo-docs/js/modernizr.custom-3.6.0.js?1644146752></script>
+<script src=/neo-docs/js/learn.js?1644146752></script>
+<script src=/neo-docs/js/hugo-learn.js?1644146752></script>
+<script src=/neo-docs/mermaid/mermaid.js?1644146752></script>
 <script>mermaid.initialize({startOnLoad:!0})</script>
 </body>
 </html>

@@ -2,22 +2,22 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=generator content="Hugo 0.92.0">
+<meta name=generator content="Hugo 0.92.1">
 <meta name=description content>
 <link rel=icon href=/neo-docs/images/favicon.png type=image/png>
 <title>ACL Permissions :: English</title>
-<link href=/neo-docs/css/nucleus.css?1643242965 rel=stylesheet>
-<link href=/neo-docs/css/fontawesome-all.min.css?1643242965 rel=stylesheet>
-<link href=/neo-docs/css/hybrid.css?1643242965 rel=stylesheet>
-<link href=/neo-docs/css/featherlight.min.css?1643242965 rel=stylesheet>
-<link href=/neo-docs/css/perfect-scrollbar.min.css?1643242965 rel=stylesheet>
-<link href=/neo-docs/css/auto-complete.css?1643242965 rel=stylesheet>
-<link href=/neo-docs/css/atom-one-dark-reasonable.css?1643242965 rel=stylesheet>
-<link href=/neo-docs/css/theme.css?1643242965 rel=stylesheet>
-<link href=/neo-docs/css/tabs.css?1643242965 rel=stylesheet>
-<link href=/neo-docs/css/hugo-theme.css?1643242965 rel=stylesheet>
-<link href=/neo-docs/css/theme-green.css?1643242965 rel=stylesheet>
-<script src=/neo-docs/js/jquery-3.3.1.min.js?1643242965></script>
+<link href=/neo-docs/css/nucleus.css?1644146752 rel=stylesheet>
+<link href=/neo-docs/css/fontawesome-all.min.css?1644146752 rel=stylesheet>
+<link href=/neo-docs/css/hybrid.css?1644146752 rel=stylesheet>
+<link href=/neo-docs/css/featherlight.min.css?1644146752 rel=stylesheet>
+<link href=/neo-docs/css/perfect-scrollbar.min.css?1644146752 rel=stylesheet>
+<link href=/neo-docs/css/auto-complete.css?1644146752 rel=stylesheet>
+<link href=/neo-docs/css/atom-one-dark-reasonable.css?1644146752 rel=stylesheet>
+<link href=/neo-docs/css/theme.css?1644146752 rel=stylesheet>
+<link href=/neo-docs/css/tabs.css?1644146752 rel=stylesheet>
+<link href=/neo-docs/css/hugo-theme.css?1644146752 rel=stylesheet>
+<link href=/neo-docs/css/theme-green.css?1644146752 rel=stylesheet>
+<script src=/neo-docs/js/jquery-3.3.1.min.js?1644146752></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/neo-docs/tutorials/acl-permissions/>
@@ -32,10 +32,10 @@
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script type=text/javascript src=/neo-docs/js/lunr.min.js?1643242965></script>
-<script type=text/javascript src=/neo-docs/js/auto-complete.js?1643242965></script>
+<script type=text/javascript src=/neo-docs/js/lunr.min.js?1644146752></script>
+<script type=text/javascript src=/neo-docs/js/auto-complete.js?1644146752></script>
 <script type=text/javascript>var baseurl="https://amlwwalker.github.io/neo-docs/"</script>
-<script type=text/javascript src=/neo-docs/js/search.js?1643242965></script>
+<script type=text/javascript src=/neo-docs/js/search.js?1644146752></script>
 </div>
 <section id=homelinks>
 <ul>
@@ -347,7 +347,8 @@ above and comparing them in binary form</p>
 <li>allows a specific account (public key) read access to the objects</li>
 <li>Requires the object to have an attribute <code>LetMeIn:OK</code></li>
 </ul>
-<p>Firstly we need two records. One for the <code>others</code> and one for our privileged key</p>
+<p>Note, there are multiple types of attribute filter you can apply, such as filtering by object length (<code>AddObjectPayloadLengthFilter</code>) or filter by owner of the object (<code>AddObjectOwnerIDFilter</code>). Check the <a href=https://github.com/nspcc-dev/neofs-sdk-go/blob/8d313dbd5d0abb99c33e77bfaa29c9defee32660/eacl/record.go#L134>eacl</a> package for functions that add filters to records
+Firstly we need two records. One for the <code>others</code> and one for our privileged key</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>import</span> 	<span style=color:#e6db74>&#34;github.com/nspcc-dev/neofs-sdk-go/eacl&#34;</span>
 
 <span style=color:#a6e22e>othersRecord</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>eacl</span>.<span style=color:#a6e22e>NewRecord</span>()
@@ -387,7 +388,13 @@ above and comparing them in binary form</p>
 <span style=color:#a6e22e>table</span>.<span style=color:#a6e22e>SetCID</span>(<span style=color:#a6e22e>someContainerID</span>)
 <span style=color:#a6e22e>table</span>.<span style=color:#a6e22e>AddRecord</span>(<span style=color:#a6e22e>privRecord</span>)
 <span style=color:#a6e22e>table</span>.<span style=color:#a6e22e>AddRecord</span>(<span style=color:#a6e22e>othersRecord</span>)
-</code></pre></div><h3 id=setting-the-eacl>Setting the EACL</h3>
+</code></pre></div><h4 id=notes>Notes</h4>
+<ul>
+<li>Container EACL can have a latest version (an update) but cannot be altered in anyway. A new table must be created superseding the previous
+It may seem that the <code>DENY</code> rules in this case are redundant or that the default would result in the <code>others</code> group being blocked automatically. On the other hand it may seem just to easy to miss a rule and accidentally let an acount through.</li>
+</ul>
+<p>You can read more about EACL rule ordering and execution here in the <a href=https://nspcc.ru/upload/neofs-spec-latest.pdf#16>NeoFS spec</a> however a high level overview:</p>
+<h3 id=setting-the-eacl>Setting the EACL</h3>
 <h4 id=container>Container</h4>
 <p>The first thing you can do is specify this against the whole container. This maybe something you would do if you were wanting to share the container&rsquo;s contents with someone.</p>
 <p>You will need</p>
@@ -441,17 +448,17 @@ above and comparing them in binary form</p>
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/neo-docs/js/clipboard.min.js?1643242965></script>
-<script src=/neo-docs/js/perfect-scrollbar.min.js?1643242965></script>
-<script src=/neo-docs/js/perfect-scrollbar.jquery.min.js?1643242965></script>
-<script src=/neo-docs/js/jquery.sticky.js?1643242965></script>
-<script src=/neo-docs/js/featherlight.min.js?1643242965></script>
-<script src=/neo-docs/js/highlight.pack.js?1643242965></script>
+<script src=/neo-docs/js/clipboard.min.js?1644146752></script>
+<script src=/neo-docs/js/perfect-scrollbar.min.js?1644146752></script>
+<script src=/neo-docs/js/perfect-scrollbar.jquery.min.js?1644146752></script>
+<script src=/neo-docs/js/jquery.sticky.js?1644146752></script>
+<script src=/neo-docs/js/featherlight.min.js?1644146752></script>
+<script src=/neo-docs/js/highlight.pack.js?1644146752></script>
 <script>hljs.initHighlightingOnLoad()</script>
-<script src=/neo-docs/js/modernizr.custom-3.6.0.js?1643242965></script>
-<script src=/neo-docs/js/learn.js?1643242965></script>
-<script src=/neo-docs/js/hugo-learn.js?1643242965></script>
-<script src=/neo-docs/mermaid/mermaid.js?1643242965></script>
+<script src=/neo-docs/js/modernizr.custom-3.6.0.js?1644146752></script>
+<script src=/neo-docs/js/learn.js?1644146752></script>
+<script src=/neo-docs/js/hugo-learn.js?1644146752></script>
+<script src=/neo-docs/mermaid/mermaid.js?1644146752></script>
 <script>mermaid.initialize({startOnLoad:!0})</script>
 </body>
 </html>
