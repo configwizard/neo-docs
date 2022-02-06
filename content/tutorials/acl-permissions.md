@@ -111,6 +111,7 @@ We are going to create an Extended ACL rule that
 * Requires the object to have an attribute `LetMeIn:OK`
 
 
+Note, there are multiple types of attribute filter you can apply, such as filtering by object length (`AddObjectPayloadLengthFilter`) or filter by owner of the object (`AddObjectOwnerIDFilter`). Check the [eacl](https://github.com/nspcc-dev/neofs-sdk-go/blob/8d313dbd5d0abb99c33e77bfaa29c9defee32660/eacl/record.go#L134) package for functions that add filters to records
 Firstly we need two records. One for the `others` and one for our privileged key
 ```go
 import 	"github.com/nspcc-dev/neofs-sdk-go/eacl"
@@ -189,6 +190,15 @@ table.SetCID(someContainerID)
 table.AddRecord(privRecord)
 table.AddRecord(othersRecord)
 ```
+
+#### Notes
+
+* Container EACL can have a latest version (an update) but cannot be altered in anyway. A new table must be created superseding the previous
+It may seem that the `DENY` rules in this case are redundant or that the default would result in the `others` group being blocked automatically. On the other hand it may seem just to easy to miss a rule and accidentally let an acount through.
+
+You can read more about EACL rule ordering and execution here in the [NeoFS spec](https://nspcc.ru/upload/neofs-spec-latest.pdf#16) however a high level overview:
+
+
 
 ### Setting the EACL 
 
