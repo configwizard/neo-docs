@@ -5,7 +5,7 @@ date: 2022-01-18T21:13:48Z
 
 NeoFS has an awesome set of permissions you can give to containers. 
 
-ACL stands for access control list - its a list, or table really, of rules. They are checked top to bottom to any incoming request. The first permission entry in the table that the request passes, will end the checks. To that end **it is important that all `DENY` permissions come after any `ALLOW` permissions.
+ACL stands for access control list - its a list, or table really, of rules. They are checked top to bottom to any incoming request. The first permission entry in the table that the request passes, will end the checks. To that end it is important that all `DENY` permissions come after any `ALLOW` permissions.
 
 ## Types of permission
 1. Basic ACL Permisisons
