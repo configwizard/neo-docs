@@ -1,10 +1,10 @@
-baseURL = 'https://amlwwalker.github.io/neo-docs/'
+baseURL = 'https://neo-docs.onrender.com/'
 languageCode = 'en-us'
 title = 'Neo FS Tutorials'
 # Change the default theme to be use when building the site with Hugo
 theme = "hugo-theme-learn"
 [params]
-landingPageURL='/neo-docs/'
+landingPageURL='/'
 # Change default color scheme with a variant one. Can be "red", "blue", "green".
 themeVariant = "green"
 #landingPageURL = 'https://amlwwalker.github.io/neo-docs/'
