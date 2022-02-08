@@ -33,11 +33,11 @@ fileNameAttr.SetKey(object.AttributeFileName) // AttributeFileName key is the fi
 fileNameAttr.SetValue(path.Base(filepath)) //path.Base(filepath) returns the last element of a file path (usually the filename)
 
 expirationEpochAttr := new(object.Attribute)
-expirationEpochAttr.SetKey(object.AttributeFileName) // AttributeFileName key is the filename to be associated with the object. 
-expirationEpochAttr.SetValue(path.Base(filepath)) //path.Base(filepath) returns the last element of a file path (usually the filename)
+expirationEpochAttr.SetKey("__NEOFS__EXPIRATION_EPOCH") // Reserved case for when the life of the object should expire 
+expirationEpochAttr.SetValue(strconv.Itoa(epoch))) //The epoch at which the object will expire
 
 
-attributes = append(attributes, []*object.Attribute{timeStampAttr, fileNameAttr}...)
+attributes = append(attributes, []*object.Attribute{timeStampAttr, fileNameAttr, expirationEpochAttr}...)
 
 ```
 {{% /tab %}}
