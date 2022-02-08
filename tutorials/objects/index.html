@@ -6,18 +6,18 @@
 <meta name=description content>
 <link rel=icon href=/images/favicon.png type=image/png>
 <title>Objects :: English</title>
-<link href=/css/nucleus.css?1644275881 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1644275881 rel=stylesheet>
-<link href=/css/hybrid.css?1644275881 rel=stylesheet>
-<link href=/css/featherlight.min.css?1644275881 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1644275881 rel=stylesheet>
-<link href=/css/auto-complete.css?1644275881 rel=stylesheet>
-<link href=/css/atom-one-dark-reasonable.css?1644275881 rel=stylesheet>
-<link href=/css/theme.css?1644275881 rel=stylesheet>
-<link href=/css/tabs.css?1644275881 rel=stylesheet>
-<link href=/css/hugo-theme.css?1644275881 rel=stylesheet>
-<link href=/css/theme-green.css?1644275881 rel=stylesheet>
-<script src=/js/jquery-3.3.1.min.js?1644275881></script>
+<link href=/css/nucleus.css?1644332055 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1644332055 rel=stylesheet>
+<link href=/css/hybrid.css?1644332055 rel=stylesheet>
+<link href=/css/featherlight.min.css?1644332055 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1644332055 rel=stylesheet>
+<link href=/css/auto-complete.css?1644332055 rel=stylesheet>
+<link href=/css/atom-one-dark-reasonable.css?1644332055 rel=stylesheet>
+<link href=/css/theme.css?1644332055 rel=stylesheet>
+<link href=/css/tabs.css?1644332055 rel=stylesheet>
+<link href=/css/hugo-theme.css?1644332055 rel=stylesheet>
+<link href=/css/theme-green.css?1644332055 rel=stylesheet>
+<script src=/js/jquery-3.3.1.min.js?1644332055></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/tutorials/objects/>
@@ -32,10 +32,10 @@
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script type=text/javascript src=/js/lunr.min.js?1644275881></script>
-<script type=text/javascript src=/js/auto-complete.js?1644275881></script>
+<script type=text/javascript src=/js/lunr.min.js?1644332055></script>
+<script type=text/javascript src=/js/auto-complete.js?1644332055></script>
 <script type=text/javascript>var baseurl="https://neo-docs.onrender.com/"</script>
-<script type=text/javascript src=/js/search.js?1644275881></script>
+<script type=text/javascript src=/js/search.js?1644332055></script>
 </div>
 <section id=homelinks>
 <ul>
@@ -243,29 +243,22 @@ Objects
 </div>
 <div class=tab-content>
 <div data-tab-item=Go data-tab-group=default class="tab-item active">
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>f</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Open</span>(<span style=color:#a6e22e>filepath</span>)
-<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>f</span>.<span style=color:#a6e22e>Close</span>()
-<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;couldn&#39;t open the file&#34;</span>, <span style=color:#a6e22e>err</span>)
-}
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>obj</span> = <span style=color:#a6e22e>object</span>.<span style=color:#a6e22e>NewRaw</span>()
+<span style=color:#a6e22e>obj</span>.<span style=color:#a6e22e>SetContainerID</span>(<span style=color:#a6e22e>containerID</span>)
+<span style=color:#a6e22e>obj</span>.<span style=color:#a6e22e>SetOwnerID</span>(<span style=color:#a6e22e>ownerID</span>)
+<span style=color:#a6e22e>obj</span>.<span style=color:#a6e22e>SetAttributes</span>(<span style=color:#a6e22e>attributes</span><span style=color:#f92672>...</span>)
+	
+<span style=color:#75715e>// use an io.Reader (e.g from a file) to get the data to upload	
+</span><span style=color:#75715e></span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>putParams</span> = new(<span style=color:#a6e22e>client</span>.<span style=color:#a6e22e>PutObjectParams</span>)
+<span style=color:#a6e22e>putParams</span>.<span style=color:#a6e22e>WithObject</span>(<span style=color:#a6e22e>obj</span>.<span style=color:#a6e22e>Object</span>())
+<span style=color:#a6e22e>putParams</span>.<span style=color:#a6e22e>WithPayloadReader</span>(<span style=color:#f92672>*</span><span style=color:#a6e22e>reader</span>)
 
-<span style=color:#a6e22e>reader</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>bufio</span>.<span style=color:#a6e22e>NewReader</span>(<span style=color:#a6e22e>f</span>)
-<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>ioReader</span> <span style=color:#a6e22e>io</span>.<span style=color:#a6e22e>Reader</span>
-<span style=color:#a6e22e>ioReader</span> = <span style=color:#a6e22e>reader</span>
-
-<span style=color:#a6e22e>ownerID</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>wallet</span>.<span style=color:#a6e22e>OwnerIDFromPrivateKey</span>(<span style=color:#a6e22e>key</span>)
+<span style=color:#a6e22e>response</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>cli</span>.<span style=color:#a6e22e>PutObject</span>(<span style=color:#a6e22e>ctx</span>, <span style=color:#a6e22e>putParams</span>, <span style=color:#a6e22e>client</span>.<span style=color:#a6e22e>WithBearer</span>(<span style=color:#a6e22e>bearerToken</span>), <span style=color:#a6e22e>client</span>.<span style=color:#a6e22e>WithSession</span>(<span style=color:#a6e22e>sessionToken</span>))
 <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;couldn&#39;t retrieve owner ID&#34;</span>, <span style=color:#a6e22e>err</span>)
+<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Errorf</span>(<span style=color:#a6e22e>err</span>)
 }
-<span style=color:#a6e22e>cntId</span> <span style=color:#f92672>:=</span> new(<span style=color:#a6e22e>cid</span>.<span style=color:#a6e22e>ID</span>)
-<span style=color:#a6e22e>cntId</span>.<span style=color:#a6e22e>Parse</span>(<span style=color:#a6e22e>containerID</span>)
-<span style=color:#a6e22e>id</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>object</span>.<span style=color:#a6e22e>UploadObject</span>(<span style=color:#a6e22e>ctx</span>, <span style=color:#a6e22e>cli</span>, <span style=color:#a6e22e>cntId</span>, <span style=color:#a6e22e>ownerID</span>, <span style=color:#a6e22e>attributes</span>, <span style=color:#a6e22e>sessionToken</span>, <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>ioReader</span>)
-<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;error attempting to upload&#34;</span>, <span style=color:#a6e22e>err</span>)
-}
-<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>String</span>(), <span style=color:#a6e22e>err</span> <span style=color:#75715e>//id is the object ID that you will want to reference
-</span><span style=color:#75715e></span>
-</code></pre></div>
+<span style=color:#75715e>//the object ID is stored in response.ID()
+</span></code></pre></div>
 </div>
 <div data-tab-item=Python data-tab-group=default class=tab-item>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>print(<span style=color:#e6db74>&#34;please help by opening a Pull Request and filling in these code snippets!&#34;</span>)
@@ -279,29 +272,6 @@ Objects
 </div>
 <p>Depending on your container&rsquo;s permissions you should now be able to view the file you uploaded at:</p>
 <p><a href=https://http.testnet.fs.neo.org/CONTAINER_ID/OBJECT_ID>https://http.testnet.fs.neo.org/CONTAINER_ID/OBJECT_ID</a></p>
-<div class=tab-panel>
-<div class=tab-nav>
-<button data-tab-item=Go data-tab-group=default class="tab-nav-button btn active" onclick="switchTab('default','Go')">Go</button>
-<button data-tab-item=Python data-tab-group=default class="tab-nav-button btn" onclick="switchTab('default','Python')">Python</button>
-<button data-tab-item=C# data-tab-group=default class="tab-nav-button btn" onclick="switchTab('default','C#')">C#</button>
-</div>
-<div class=tab-content>
-<div data-tab-item=Go data-tab-group=default class="tab-item active">
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>fileNameAttr</span> <span style=color:#f92672>:=</span> new(<span style=color:#a6e22e>object</span>.<span style=color:#a6e22e>Attribute</span>)
-<span style=color:#a6e22e>fileNameAttr</span>.<span style=color:#a6e22e>SetKey</span>(<span style=color:#a6e22e>object</span>.<span style=color:#a6e22e>AttributeFileName</span>) <span style=color:#75715e>// AttributeFileName key is the filename to be associated with the object. 
-</span><span style=color:#75715e></span><span style=color:#a6e22e>fileNameAttr</span>.<span style=color:#a6e22e>SetValue</span>(<span style=color:#a6e22e>path</span>.<span style=color:#a6e22e>Base</span>(<span style=color:#a6e22e>filepath</span>)) <span style=color:#75715e>//path.Base(filepath) returns the filename from a filepath
-</span></code></pre></div>
-</div>
-<div data-tab-item=Python data-tab-group=default class=tab-item>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>print(<span style=color:#e6db74>&#34;please help by opening a Pull Request and filling in these code snippets!&#34;</span>)
-</code></pre></div>
-</div>
-<div data-tab-item=C# data-tab-group=default class=tab-item>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#>Console.WriteLine(<span style=color:#e6db74>&#34;please help by opening a Pull Request and filling in these code snippets!&#34;</span>);
-</code></pre></div>
-</div>
-</div>
-</div>
 <h2 id=listing-the-content-of-a-container>Listing the content of a container</h2>
 <p>Once you have uploaded objects to a container, you will want to list them out. Listing is a special case of searching within a container.
 To search for specific objects, you add filters to the search. By setting the only filter as a root filter, it will list everything within the container
@@ -480,17 +450,17 @@ To search for specific objects, you add filters to the search. By setting the on
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1644275881></script>
-<script src=/js/perfect-scrollbar.min.js?1644275881></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1644275881></script>
-<script src=/js/jquery.sticky.js?1644275881></script>
-<script src=/js/featherlight.min.js?1644275881></script>
-<script src=/js/highlight.pack.js?1644275881></script>
+<script src=/js/clipboard.min.js?1644332055></script>
+<script src=/js/perfect-scrollbar.min.js?1644332055></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1644332055></script>
+<script src=/js/jquery.sticky.js?1644332055></script>
+<script src=/js/featherlight.min.js?1644332055></script>
+<script src=/js/highlight.pack.js?1644332055></script>
 <script>hljs.initHighlightingOnLoad()</script>
-<script src=/js/modernizr.custom-3.6.0.js?1644275881></script>
-<script src=/js/learn.js?1644275881></script>
-<script src=/js/hugo-learn.js?1644275881></script>
-<script src=/mermaid/mermaid.js?1644275881></script>
+<script src=/js/modernizr.custom-3.6.0.js?1644332055></script>
+<script src=/js/learn.js?1644332055></script>
+<script src=/js/hugo-learn.js?1644332055></script>
+<script src=/mermaid/mermaid.js?1644332055></script>
 <script>mermaid.initialize({startOnLoad:!0})</script>
 </body>
 </html>
