@@ -6,18 +6,18 @@
 <meta name=description content>
 <link rel=icon href=/images/favicon.png type=image/png>
 <title>Helpers :: English</title>
-<link href=/css/nucleus.css?1644332055 rel=stylesheet>
-<link href=/css/fontawesome-all.min.css?1644332055 rel=stylesheet>
-<link href=/css/hybrid.css?1644332055 rel=stylesheet>
-<link href=/css/featherlight.min.css?1644332055 rel=stylesheet>
-<link href=/css/perfect-scrollbar.min.css?1644332055 rel=stylesheet>
-<link href=/css/auto-complete.css?1644332055 rel=stylesheet>
-<link href=/css/atom-one-dark-reasonable.css?1644332055 rel=stylesheet>
-<link href=/css/theme.css?1644332055 rel=stylesheet>
-<link href=/css/tabs.css?1644332055 rel=stylesheet>
-<link href=/css/hugo-theme.css?1644332055 rel=stylesheet>
-<link href=/css/theme-green.css?1644332055 rel=stylesheet>
-<script src=/js/jquery-3.3.1.min.js?1644332055></script>
+<link href=/css/nucleus.css?1644352293 rel=stylesheet>
+<link href=/css/fontawesome-all.min.css?1644352293 rel=stylesheet>
+<link href=/css/hybrid.css?1644352293 rel=stylesheet>
+<link href=/css/featherlight.min.css?1644352293 rel=stylesheet>
+<link href=/css/perfect-scrollbar.min.css?1644352293 rel=stylesheet>
+<link href=/css/auto-complete.css?1644352293 rel=stylesheet>
+<link href=/css/atom-one-dark-reasonable.css?1644352293 rel=stylesheet>
+<link href=/css/theme.css?1644352293 rel=stylesheet>
+<link href=/css/tabs.css?1644352293 rel=stylesheet>
+<link href=/css/hugo-theme.css?1644352293 rel=stylesheet>
+<link href=/css/theme-green.css?1644352293 rel=stylesheet>
+<script src=/js/jquery-3.3.1.min.js?1644352293></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/tutorials/helpers/>
@@ -32,10 +32,10 @@
 <input data-search-input id=search-by type=search placeholder=Search...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script type=text/javascript src=/js/lunr.min.js?1644332055></script>
-<script type=text/javascript src=/js/auto-complete.js?1644332055></script>
+<script type=text/javascript src=/js/lunr.min.js?1644352293></script>
+<script type=text/javascript src=/js/auto-complete.js?1644352293></script>
 <script type=text/javascript>var baseurl="https://neo-docs.onrender.com/"</script>
-<script type=text/javascript src=/js/search.js?1644332055></script>
+<script type=text/javascript src=/js/search.js?1644352293></script>
 </div>
 <section id=homelinks>
 <ul>
@@ -177,13 +177,34 @@ Helpers
 <p>There are some functions that don&rsquo;t quite fit into another topic. They will be referenced as <code>helper.X</code> in other tutorials</p>
 <h2 id=retrieving-the-owner-id>Retrieving the Owner ID</h2>
 <p>If you have the public key of a wallet you can determine the <code>ownerID</code></p>
+<div class=tab-panel>
+<div class=tab-nav>
+<button data-tab-item=Go data-tab-group=default class="tab-nav-button btn active" onclick="switchTab('default','Go')">Go</button>
+<button data-tab-item=Python data-tab-group=default class="tab-nav-button btn" onclick="switchTab('default','Python')">Python</button>
+<button data-tab-item=C# data-tab-group=default class="tab-nav-button btn" onclick="switchTab('default','C#')">C#</button>
+</div>
+<div class=tab-content>
+<div data-tab-item=Go data-tab-group=default class="tab-item active">
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>w</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>owner</span>.<span style=color:#a6e22e>NEO3WalletFromPublicKey</span>(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>publicKey</span>)
 <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
 <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Errorf</span>(<span style=color:#e6db74>&#34;error retreiving wallet %w&#34;</span>, <span style=color:#a6e22e>err</span>)
 }
 
 <span style=color:#a6e22e>id</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>owner</span>.<span style=color:#a6e22e>NewIDFromNeo3Wallet</span>(<span style=color:#a6e22e>w</span>)
-</code></pre></div><h2 id=convert-string-to-uin160>Convert String to Uin160</h2>
+</code></pre></div>
+</div>
+<div data-tab-item=Python data-tab-group=default class=tab-item>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>print(<span style=color:#e6db74>&#34;please help by opening an MR and filling in these code snippets!&#34;</span>)
+</code></pre></div>
+</div>
+<div data-tab-item=C# data-tab-group=default class=tab-item>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#><span style=color:#66d9ef>var</span> key = <span style=color:#e6db74>$&#34;{privateKey}&#34;</span>.LoadWif();
+<span style=color:#66d9ef>var</span> ownerid = OwnerID.FromScriptHash(key.PublicKey().PublicKeyToScriptHash());
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id=convert-string-to-uin160>Convert String to Uin160</h2>
 <p>Convert a string format Neo (3) address into a <code>uint160</code>. This is the format required for making transfers</p>
 <div class=tab-panel>
 <div class=tab-nav>
@@ -213,7 +234,8 @@ Helpers
 </code></pre></div>
 </div>
 <div data-tab-item=C# data-tab-group=default class=tab-item>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#>Console.WriteLine(<span style=color:#e6db74>&#34;please help by opening an MR and filling in these code snippets!&#34;</span>);
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#><span style=color:#66d9ef>var</span> key = <span style=color:#e6db74>$&#34;{privateKey}&#34;</span>.LoadWif();
+<span style=color:#66d9ef>var</span> uint160 = key.PublicKey().PublicKeyToScriptHash();
 </code></pre></div>
 </div>
 </div>
@@ -284,17 +306,17 @@ Helpers
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/js/clipboard.min.js?1644332055></script>
-<script src=/js/perfect-scrollbar.min.js?1644332055></script>
-<script src=/js/perfect-scrollbar.jquery.min.js?1644332055></script>
-<script src=/js/jquery.sticky.js?1644332055></script>
-<script src=/js/featherlight.min.js?1644332055></script>
-<script src=/js/highlight.pack.js?1644332055></script>
+<script src=/js/clipboard.min.js?1644352293></script>
+<script src=/js/perfect-scrollbar.min.js?1644352293></script>
+<script src=/js/perfect-scrollbar.jquery.min.js?1644352293></script>
+<script src=/js/jquery.sticky.js?1644352293></script>
+<script src=/js/featherlight.min.js?1644352293></script>
+<script src=/js/highlight.pack.js?1644352293></script>
 <script>hljs.initHighlightingOnLoad()</script>
-<script src=/js/modernizr.custom-3.6.0.js?1644332055></script>
-<script src=/js/learn.js?1644332055></script>
-<script src=/js/hugo-learn.js?1644332055></script>
-<script src=/mermaid/mermaid.js?1644332055></script>
+<script src=/js/modernizr.custom-3.6.0.js?1644352293></script>
+<script src=/js/learn.js?1644352293></script>
+<script src=/js/hugo-learn.js?1644352293></script>
+<script src=/mermaid/mermaid.js?1644352293></script>
 <script>mermaid.initialize({startOnLoad:!0})</script>
 </body>
 </html>
