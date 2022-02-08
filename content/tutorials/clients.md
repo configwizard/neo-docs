@@ -79,7 +79,10 @@ print("please help by opening a Pull Request and filling in these code snippets!
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
+using Neo.FileStorage.API.Client;
+using Neo.FileStorage.API.Cryptography;
+using System.Security.Cryptography;
+
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -109,7 +112,8 @@ print("please help by opening a Pull Request and filling in these code snippets!
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
+var key = $"{privateKey}".LoadWif();
+using var client = new Client(key, testNet);
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -131,7 +135,8 @@ print("please help by opening a Pull Request and filling in these code snippets!
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
+var testNet = "http://st01.testnet.fs.neo.org:8080";
+var mainNet = "https://st01.storage.fs.neo.org:8082";
 ```
 {{% /tab %}}
 {{< /tabs >}}

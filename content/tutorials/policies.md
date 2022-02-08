@@ -142,7 +142,9 @@ print("please help by opening a Pull Request and filling in these code snippets!
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
+string placementPolicy  = @"REP 2 IN X
+    CBF 2
+    SELECT 2 FROM * AS X";
 ```
 {{% /tab %}}
 {{< /tabs >}}

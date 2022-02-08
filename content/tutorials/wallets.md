@@ -278,7 +278,7 @@ print("please help by opening a Pull Request and filling in these code snippets!
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
+using Neo.FileStorage.API.Client;
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -310,7 +310,9 @@ print("please help by opening a Pull Request and filling in these code snippets!
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
+var key = $"{aprivateKey}".LoadWif();
+using var client = new Client(key, host);
+var balance = await client.GetBalance();
 ```
 {{% /tab %}}
 {{< /tabs >}}

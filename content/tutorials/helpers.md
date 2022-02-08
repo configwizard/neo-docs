@@ -9,6 +9,8 @@ There are some functions that don't quite fit into another topic. They will be r
 
 If you have the public key of a wallet you can determine the `ownerID`
 
+{{< tabs >}}
+{{% tab name="Go" %}}
 ```go
 w, err := owner.NEO3WalletFromPublicKey(&publicKey)
 if err != nil {
@@ -17,6 +19,19 @@ return fmt.Errorf("error retreiving wallet %w", err)
 
 id, err := owner.NewIDFromNeo3Wallet(w)
 ```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+print("please help by opening an MR and filling in these code snippets!")
+```
+{{% /tab %}}
+{{% tab name="C#" %}}
+```c#
+var key = $"{privateKey}".LoadWif();
+var ownerid = OwnerID.FromScriptHash(key.PublicKey().PublicKeyToScriptHash());
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 ## Convert String to Uin160
 
@@ -47,7 +62,8 @@ print("please help by opening an MR and filling in these code snippets!")
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-Console.WriteLine("please help by opening an MR and filling in these code snippets!");
+var key = $"{privateKey}".LoadWif();
+var uint160 = key.PublicKey().PublicKeyToScriptHash();
 ```
 {{% /tab %}}
 {{< /tabs >}}
