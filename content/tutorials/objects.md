@@ -65,28 +65,21 @@ See [tokens](/neo-docs/tutorials/tokens) for how to create a session token
 {{< tabs >}}
 {{% tab name="Go" %}}
 ```go
-f, err := os.Open(filepath)
-defer f.Close()
-if err != nil {
-    return fmt.Println("couldn't open the file", err)
-}
+var obj = object.NewRaw()
+obj.SetContainerID(containerID)
+obj.SetOwnerID(ownerID)
+obj.SetAttributes(attributes...)
+	
+// use an io.Reader (e.g from a file) to get the data to upload	
+var putParams = new(client.PutObjectParams)
+putParams.WithObject(obj.Object())
+putParams.WithPayloadReader(*reader)
 
-reader := bufio.NewReader(f)
-var ioReader io.Reader
-ioReader = reader
-
-ownerID, err := wallet.OwnerIDFromPrivateKey(key)
+response, err := cli.PutObject(ctx, putParams, client.WithBearer(bearerToken), client.WithSession(sessionToken))
 if err != nil {
-    return fmt.Println("couldn't retrieve owner ID", err)
+return fmt.Errorf(err)
 }
-cntId := new(cid.ID)
-cntId.Parse(containerID)
-id, err := object.UploadObject(ctx, cli, cntId, ownerID, attributes, sessionToken, &ioReader)
-if err != nil {
-    return fmt.Println("error attempting to upload", err)
-}
-return id.String(), err //id is the object ID that you will want to reference
-
+//the object ID is stored in response.ID()
 ```
 {{% /tab %}}
 {{% tab name="Python" %}}
@@ -105,27 +98,6 @@ Console.WriteLine("please help by opening a Pull Request and filling in these co
 Depending on your container's permissions you should now be able to view the file you uploaded at:
 
 https://http.testnet.fs.neo.org/CONTAINER_ID/OBJECT_ID
-
-{{< tabs >}}
-{{% tab name="Go" %}}
-```go
-fileNameAttr := new(object.Attribute)
-fileNameAttr.SetKey(object.AttributeFileName) // AttributeFileName key is the filename to be associated with the object. 
-fileNameAttr.SetValue(path.Base(filepath)) //path.Base(filepath) returns the filename from a filepath
-```
-{{% /tab %}}
-{{% tab name="Python" %}}
-```python
-print("please help by opening a Pull Request and filling in these code snippets!")
-```
-{{% /tab %}}
-{{% tab name="C#" %}}
-```c#
-Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
-```
-{{% /tab %}}
-{{< /tabs >}}
-
 
 ## Listing the content of a container
 

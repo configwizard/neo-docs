@@ -3,7 +3,7 @@ title: "Tokens"
 date: 2022-01-24T11:23:17Z
 ---
 
-Tokens are requried to act on any [objects](/neo-docs/tutorials/objects) within a [container](/neo-docs/tutorials/containers). Sessions last for limited time and are restricted by permissions. [Session tokens](/neo-docs/tutorials/tokens) use the private key to sign them while [bearer tokens(/examples/tokens) are issued to wallets by a container owner.
+Tokens are requried to act on any [objects](/neo-docs/tutorials/objects) within a [container](/neo-docs/tutorials/containers). Sessions last for limited time and are restricted by permissions. [Session tokens](/neo-docs/tutorials/tokens) use the private key to sign them while [bearer tokens](/examples/tokens) are issued to wallets by a container owner.
 
 ## Session Tokens
 
