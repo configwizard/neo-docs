@@ -44,7 +44,12 @@ print("please help by opening a Pull Request and filling in these code snippets!
 {{% /tab %}}
 {{% tab name="C#" %}}
 ```c#
-Console.WriteLine("please help by opening a Pull Request and filling in these code snippets!");
+using var client = new Client(key, host); // key is ECDsa object and host is a string
+using var cancellationTokenSource = new CancellationTokenSource();
+cancellationTokenSource.CancelAfter(10000);
+var sessionToken = await client.CreateSession(ulong.MaxValue, 
+	options: new CallOptions(), 
+	context: cancellationTokenSource.Token); // options and context aren't mandatory
 ```
 {{% /tab %}}
 {{< /tabs >}}
